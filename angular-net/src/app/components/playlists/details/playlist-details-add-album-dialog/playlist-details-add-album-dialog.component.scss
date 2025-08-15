@@ -1,0 +1,114 @@
+.add-album-dialog-container {
+  background: #181828;
+  color: var(--main-accent);
+  border-radius: 18px;
+  padding: 24px 24px 16px 24px;
+  min-width: 340px;
+  max-width: 400px;
+}
+.add-album-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--main-accent);
+}
+.add-album-search-field {
+  width: 100%;
+  margin-bottom: 12px;
+}
+:host ::ng-deep .add-album-search-field .mat-form-field-appearance-outline .mat-form-field-outline,
+:host ::ng-deep .add-album-search-field .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  border-color: var(--secondary-accent) !important;
+}
+:host ::ng-deep .add-album-search-field .mat-form-field-label {
+  color: var(--secondary-accent) !important;
+}
+:host ::ng-deep .add-album-search-field .mat-input-element {
+  color: #fff !important;
+  caret-color: #fff !important;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  padding: 0 12px;
+  background: transparent;
+}
+:host ::ng-deep .add-album-search-field .mat-form-field-flex {
+  height: 40px;
+  align-items: center;
+}
+.add-album-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 260px;
+  overflow-y: auto;
+  margin-bottom: 18px;
+  background: #23223a;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+.add-album-radio {
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  color: var(--main-accent);
+  width: 100%;
+  transition: background 0.2s;
+}
+.add-album-radio.mat-radio-checked {
+  background: rgba(108, 92, 231, 0.15);
+}
+.add-album-radio:hover {
+  background: rgba(108, 92, 231, 0.10);
+}
+.add-album-title {
+  font-weight: 600;
+  margin-right: 8px;
+  color: var(--main-accent);
+}
+.add-album-artist {
+  color: var(--secondary-accent);
+  font-size: 0.95em;
+}
+.add-album-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+:host ::ng-deep .mat-mdc-input-element,
+:host ::ng-deep input[matInput],
+:host ::ng-deep .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-option,
+:host ::ng-deep .mat-mdc-option .mdc-list-item__primary-text,
+:host ::ng-deep .mat-mdc-select-value-text,
+:host ::ng-deep .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-select-arrow,
+:host ::ng-deep .mat-mdc-select-panel,
+:host ::ng-deep .mat-mdc-select-trigger {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+}
+
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-placeholder {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+
+:host ::ng-deep .mdc-floating-label {
+  color: var(--secondary-accent) !important;
+}
+
+:host ::ng-deep .mat-mdc-form-field-infix::placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+} 

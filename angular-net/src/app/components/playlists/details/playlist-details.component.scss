@@ -1,0 +1,21 @@
+.release-table-header, .release-table-row {
+  display: grid;
+  grid-template-columns: 40px 1.5fr 1fr 80px; 
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--main-accent);
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.release-table-row {
+  .song-duration-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary-text);
+    padding-right: 0;
+    font-size: 0.98rem;
+    gap: 2px;
+  }
+} 

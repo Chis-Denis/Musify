@@ -1,0 +1,57 @@
+mat-card {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 32px 24px 24px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(255, 76, 96, 0.2);
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--secondary-accent) !important;
+}
+
+mat-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--main-accent) !important;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background: rgba(108, 92, 231, 0.1) !important;
+}
+
+button[mat-raised-button] {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  border-radius: 8px !important;
+  margin-top: 10px;
+  background: var(--main-accent) !important;
+  color: var(--primary-text) !important;
+}
+
+mat-error {
+  font-size: 0.95em;
+  color: var(--main-accent) !important;
+  margin-bottom: 8px;
+  display: block;
+  text-align: left;
+}
+
+.auth-link {
+  color: var(--main-accent) !important;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.auth-link:hover {
+  color: rgba(255, 76, 96, 0.8) !important;
+}

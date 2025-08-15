@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--main-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 64px);
+}
+
+mat-sidenav {
+  width: 240px;
+  background: var(--section-bg) !important;
+  border-right: 1px solid var(--secondary-accent);
+}
+
+.app-title {
+  color: var(--secondary-accent) !important;
+  margin-left: 16px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+button[mat-icon-button] {
+  color: var(--secondary-accent) !important;
+  
+  &:hover {
+    background: rgba(108, 92, 231, 0.1) !important;
+  }
+}
+
+// Custom navigation styles
+.custom-nav-list .custom-nav-item {
+  color: #ffffff !important;
+  
+  .nav-text, .nav-icon {
+    color: #ffffff !important;
+  }
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    
+    .nav-icon {
+      color: var(--secondary-accent) !important;
+    }
+  }
+}
+
+:host ::ng-deep mat-nav-list a {
+  color: #ffffff !important;
+  
+  span, mat-icon {
+    color: #ffffff !important;
+  }
+}

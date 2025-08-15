@@ -1,0 +1,30 @@
+<h2>Delete Song</h2>
+
+<mat-form-field class="full-width" appearance="fill">
+  <mat-label>Search song...</mat-label>
+  <input
+    type="text"
+    matInput
+    [(ngModel)]="currentSongSearch"
+    (ngModelChange)="filterSongs()"
+    [matAutocomplete]="auto"
+    name="songSearch"
+  />
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectSong($event.option.value)">
+    <mat-option *ngFor="let song of filteredSongs" [value]="song">
+      {{ song.title }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+<button
+  mat-raised-button
+  color="warn"
+  (click)="onDelete()"
+  [disabled]="!selectedSongId"
+>
+  Delete Song
+</button>
+
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error-message" [innerHTML]="errorMessage"></div>

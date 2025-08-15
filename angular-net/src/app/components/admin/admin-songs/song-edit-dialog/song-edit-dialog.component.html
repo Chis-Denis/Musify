@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Edit Song</h2>
+<mat-dialog-content>
+  <mat-form-field class="full-width">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="data.title">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Select Artist</mat-label>
+    <mat-select [(ngModel)]="data.artistIds" multiple>
+      <mat-option *ngFor="let artist of data.artists" [value]="artist.id">
+        {{ artist.stageName || (artist.firstName + ' ' + artist.lastName) }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-flat-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

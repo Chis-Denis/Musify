@@ -1,0 +1,128 @@
+<div class="admin-artists-container">
+  <div class="form-section">
+    <h3>Add New Artist</h3>
+    
+    <!-- Remove class="form-field" from all mat-form-fields to match admin-users -->
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="newArtist.type">
+        <mat-option value="person">Person</mat-option>
+        <mat-option value="band">Band</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Active Start</mat-label>
+      <input matInput type="date" [(ngModel)]="newArtist.activeStart" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Active End</mat-label>
+      <input matInput type="date" [(ngModel)]="newArtist.activeEnd" />
+    </mat-form-field>
+
+    <ng-container *ngIf="newArtist.type === 'person'">
+      <mat-form-field>
+        <mat-label>Stage Name</mat-label>
+        <input matInput [(ngModel)]="newArtist.stageName" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="newArtist.firstName" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="newArtist.lastName" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Birthday</mat-label>
+        <input matInput type="date" [(ngModel)]="newArtist.birthday" />
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="newArtist.type === 'band'">
+      <mat-form-field>
+        <mat-label>Band Name</mat-label>
+        <input matInput [(ngModel)]="newArtist.bandName" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Location</mat-label>
+        <input matInput [(ngModel)]="newArtist.location" />
+      </mat-form-field>
+    </ng-container>
+
+    <!-- Use the exact same button structure as admin-users -->
+    <div class="button-container">
+      <button mat-raised-button (click)="createArtist()">Add Artist</button>
+    </div>
+  </div>
+
+  <!-- Band Members Section -->
+  <div class="form-section">
+    <h3>Band Members</h3>
+    
+    <mat-form-field>
+      <mat-label>Select the band</mat-label>
+      <mat-select [(ngModel)]="selectedBandId">
+        <mat-option *ngFor="let band of bands" [value]="band.id">
+          {{ band.bandName || band.stageName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select the member</mat-label>
+      <mat-select [(ngModel)]="selectedMemberId">
+        <mat-option *ngFor="let person of persons" [value]="person.id">
+          {{ person.stageName || (person.firstName + ' ' + person.lastName) }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button (click)="addMember()">Add Member</button>
+      <button mat-raised-button (click)="removeMember()">Remove Member</button>
+    </div>
+  </div>
+
+  <!-- Artists Table Section -->
+  <mat-card class="table-section">
+    <mat-form-field appearance="fill" class="name-filter">
+      <mat-label>Search by name</mat-label>
+      <input matInput (keyup)="search()" [(ngModel)]="searchName" placeholder="Ex: Alice, Neon..." />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="full-width-table">
+      <ng-container matColumnDef="stageName">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let artist">{{ artist.stageName || artist.bandName || '(Unnamed)' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let artist">
+          <button mat-icon-button color="accent" (click)="editArtist(artist)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteArtist(artist.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['stageName', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['stageName', 'actions']"></tr>
+    </table>
+
+    <div class="paginator-container">
+      <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card>
+</div>
+
+

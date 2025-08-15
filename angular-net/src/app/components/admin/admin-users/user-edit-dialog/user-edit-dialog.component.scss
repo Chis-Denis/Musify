@@ -1,0 +1,276 @@
+:host {
+  display: block;
+}
+
+// Remove conflicting container styles - let global styles handle it
+:host ::ng-deep .cdk-overlay-pane {
+  max-width: 90vw !important;
+  
+  .mat-mdc-dialog-container {
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+// Dialog title with purple background - perfect alignment
+h2[mat-dialog-title] {
+  color: var(--primary-text) !important;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 !important;
+  padding: 24px !important;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: var(--secondary-accent) !important;
+  border-radius: 16px 16px 0 0 !important;  // ← Matches dialog border-radius
+}
+
+// Dialog content
+mat-dialog-content {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  padding: 24px !important;
+  margin: 0 !important;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible !important; 
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+// Dialog actions
+mat-dialog-actions {
+  background: var(--card-bg) !important;
+  padding: 16px 24px 24px 24px !important;
+  justify-content: flex-end !important;
+  gap: 12px;
+  border-top: 1px solid var(--secondary-accent);
+  overflow: hidden;
+  margin: 0 !important;
+  border-radius: 0 0 16px 16px !important;  // ← Matches dialog border-radius
+
+  button {
+    padding: 8px 16px;
+    border-radius: 8px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+
+    &[mat-button] {
+      background: transparent !important;
+      color: var(--secondary-text) !important;
+      border: 1px solid var(--secondary-accent) !important;
+
+      &:hover {
+        background: rgba(108, 92, 231, 0.1) !important;
+        color: var(--primary-text) !important;
+        border-color: var(--main-accent) !important;
+      }
+    }
+
+    &[mat-flat-button] {
+      background: var(--main-accent) !important;
+      color: var(--primary-text) !important;
+      box-shadow: 0 4px 12px rgba(255, 76, 96, 0.3);
+
+      &:hover {
+        background: rgba(255, 76, 96, 0.8) !important;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(255, 76, 96, 0.4);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: var(--secondary-text) !important;
+        transform: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+// Fix form field styling - prevent black bars and remove inner borders
+:host ::ng-deep .mat-mdc-form-field {
+  width: 100%;
+  
+  .mat-mdc-text-field-wrapper {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mat-mdc-text-field-wrapper:hover {
+    border-color: var(--main-accent) !important;
+  }
+
+  .mat-mdc-text-field-wrapper.mdc-text-field--focused {
+    border-color: var(--main-accent) !important;
+    box-shadow: 0 0 0 2px rgba(255, 76, 96, 0.2) !important;
+  }
+
+  .mat-mdc-input-element {
+    color: var(--primary-text) !important;
+    caret-color: var(--primary-text) !important;
+    background: transparent !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mdc-floating-label {
+    color: var(--secondary-accent) !important;
+  }
+
+  &.mat-focused .mdc-floating-label {
+    color: var(--main-accent) !important;
+  }
+
+  // Fix the form field flex container - same background as wrapper
+  .mat-mdc-form-field-flex {
+    background: var(--card-bg) !important;
+    border-radius: 8px !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  // Hide unnecessary overlays and ripples
+  .mat-mdc-form-field-focus-overlay {
+    background: transparent !important;
+    display: none !important;
+  }
+
+  .mdc-line-ripple {
+    display: none !important;
+  }
+
+  // Ensure the infix takes full width
+  .mat-mdc-form-field-infix {
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent !important;
+  }
+}
+
+// Prevent horizontal scrolling
+:host ::ng-deep .mat-mdc-dialog-content {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  max-height: 70vh;
+}
+
+// Enhanced Select dropdown styling - ensure it works in dialog
+:host ::ng-deep .mat-mdc-select {
+  .mat-mdc-select-trigger {
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    min-height: 32px !important;
+    font-size: 16px !important; 
+  }
+  
+  .mat-mdc-select-value {
+    color: var(--primary-text) !important;
+  }
+
+  .mat-mdc-select-arrow {
+    color: var(--secondary-accent) !important;
+    transform: scale(1) !important;
+  }
+  
+  .mat-mdc-select-placeholder {
+    color: var(--secondary-text) !important;
+  }
+}
+
+// Ensure select field wrapper doesn't interfere with dropdown
+:host ::ng-deep .mat-mdc-form-field-type-mat-select {
+  .mat-mdc-text-field-wrapper {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    position: relative !important;
+    z-index: 1 !important;
+    min-height: 32px !important;
+    
+    &:hover {
+      border-color: var(--main-accent) !important;
+    }
+    
+    &.mdc-text-field--focused {
+      border-color: var(--main-accent) !important;
+      box-shadow: 0 0 0 2px rgba(255, 76, 96, 0.2) !important;
+    }
+  }
+  
+  .mat-mdc-form-field-flex {
+    background: var(--card-bg) !important;
+  }
+}
+
+// Remove the conflicting mdc-dialog__surface styles - they might be interfering
+:host ::ng-deep {
+  .mdc-dialog__surface {
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important; // Allow dropdown to show outside dialog
+  }
+
+  .mat-mdc-dialog-container {
+    .mdc-dialog__container {
+      border: none !important;
+      overflow: visible !important; // Allow dropdown to show outside dialog
+    }
+  }
+}
+
+// Critical fix for select dropdown z-index
+:host ::ng-deep {
+  // Ensure dialog content allows overflow for dropdown
+  .mat-mdc-dialog-content {
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  
+  // Force dialog container to lower z-index
+  .mat-mdc-dialog-container {
+    z-index: 1000 !important;
+  }
+}
+
+// Global fix targeting the specific overlay structure from inspect element
+::ng-deep .cdk-overlay-connected-position-bounding-box {
+  z-index: 100000 !important;
+  
+  .mat-mdc-select-panel {
+    z-index: 100001 !important;
+    background: var(--card-bg) !important;
+    border: 2px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    
+    .mat-mdc-option {
+      background: var(--card-bg) !important;
+      color: var(--primary-text) !important;
+      padding: 2px 2px 2px 16px !important;
+      
+      &:hover {
+        background: rgba(108, 92, 231, 0.2) !important;
+      }
+
+      &.mdc-list-item--selected {
+        background: rgba(255, 76, 96, 0.2) !important;
+        color: var(--main-accent) !important;
+      }
+    }
+  }
+}

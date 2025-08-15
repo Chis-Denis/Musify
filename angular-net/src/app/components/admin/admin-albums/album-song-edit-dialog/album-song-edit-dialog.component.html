@@ -1,0 +1,133 @@
+<mat-dialog-content>
+    <h2>Edit Songs in Album</h2>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="main-content">
+    <div class="songs-list-section">
+      <h3>Songs in Album</h3>
+      
+      <div *ngIf="songsInAlbum.length === 0" class="no-songs-message">
+        <p>No songs in this album yet. Add some songs to get started!</p>
+      </div>
+
+      <div 
+        *ngIf="songsInAlbum.length > 0"
+        cdkDropList 
+        class="songs-drag-list" 
+        (cdkDropListDropped)="drop($event)">
+        
+        <mat-card 
+          *ngFor="let song of songsInAlbum" 
+          class="song-card draggable-song"
+          cdkDrag
+          [cdkDragData]="song"
+          tabindex="0"
+          appearance="outlined">
+
+          <!-- Default visible card -->
+          <div class="song-item">
+            <mat-icon class="drag-handle" cdkDragHandle>drag_indicator</mat-icon>
+            <mat-icon class="song-icon">music_note</mat-icon>
+            <div class="song-content">
+              <div class="song-info">
+                <p class="song-title">{{ song.title }}</p>
+                <p class="song-artist">{{ song.artistsStageName }}</p>
+              </div>
+              <div class="song-position">
+                <span class="position-badge">{{ getSongDisplayPosition(song.id) }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div *cdkDragPreview class="cdk-drag-preview">
+            <mat-card class="song-card song-card-preview">
+              <div class="song-item">
+                <mat-icon class="song-icon">music_note</mat-icon>
+                <div class="song-content">
+                  <div class="song-info">
+                    <p class="song-title">{{ song.title }}</p>
+                    <p class="song-artist">{{ song.artistsStageName }}</p>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+
+          <div *cdkDragPlaceholder class="cdk-drag-placeholder">
+            <mat-card class="song-card-placeholder"></mat-card>
+          </div>
+        </mat-card>
+      </div>
+
+      <div *ngIf="hasChanges" class="save-changes-section">
+        <button mat-raised-button color="primary" (click)="saveChangesWithTempPositions()">
+          <mat-icon>save</mat-icon>
+          Save Changes
+        </button>
+        <button mat-button (click)="cancelChanges()">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <div class="controls-panel">
+      <mat-card class="control-card">
+        <mat-card-header>
+          <mat-card-title>Add Song to Album</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Select Song</mat-label>
+            <mat-select [(ngModel)]="newSongId" name="songId" required>
+              <mat-option *ngFor="let song of songs" [value]="song.id">
+                {{ song.title }} - {{ song.artistsStageName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <button 
+            mat-raised-button 
+            color="primary" 
+            (click)="addSongToAlbum()"
+            [disabled]="!newSongId"
+            class="full-width">
+            <mat-icon>add</mat-icon>
+            Add Song
+          </button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="control-card" *ngIf="songsInAlbum.length > 0">
+        <mat-card-header>
+          <mat-card-title>Remove Song from Album</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Select Song to Remove</mat-label>
+            <mat-select [(ngModel)]="selectedSongId" name="selectedSongId" required>
+              <mat-option *ngFor="let song of songsInAlbum" [value]="song.id">
+                {{ song.title }} - {{ song.artistsStageName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button 
+            mat-raised-button 
+            color="warn" 
+            (click)="deleteSongFromAlbum(selectedSongId)"
+            [disabled]="!selectedSongId"
+            class="full-width">
+            <mat-icon>remove</mat-icon>
+            Remove Song
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button (click)="save()">Save</button>
+</mat-dialog-actions>

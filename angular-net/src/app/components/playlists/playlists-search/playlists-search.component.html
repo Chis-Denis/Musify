@@ -1,0 +1,16 @@
+<div class="search-wrapper playlists-search-bar">
+  <mat-form-field appearance="outline" class="search-box">
+    <mat-label>Search Playlists</mat-label>
+    <input
+      matInput
+      [ngModel]="searchName"
+      (ngModelChange)="onSearchNameChange($event)"
+      (keydown.enter)="onSearchByName()"
+      placeholder="What playlist do you want to find?"
+      name="searchName"
+    />
+  </mat-form-field>
+  <button mat-icon-button color="accent" aria-label="Search" (click)="onSearchByName()">
+    <mat-icon>search</mat-icon>
+  </button>
+</div> 

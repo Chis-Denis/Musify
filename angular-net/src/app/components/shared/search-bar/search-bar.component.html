@@ -1,0 +1,19 @@
+<div class="search-wrapper">
+  <button mat-icon-button [routerLink]="['/', routePaths.home]" aria-label="Home" class="home-icon">
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <mat-form-field appearance="outline" class="search-box">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      [(ngModel)]="query"
+      (keydown.enter)="onSearch()"
+      placeholder="What do you want to play?"
+    />
+  </mat-form-field>
+  
+  <button mat-icon-button color="accent" aria-label="Search" (click)="onSearch()">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>

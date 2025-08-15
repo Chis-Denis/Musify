@@ -1,0 +1,109 @@
+<div *ngIf="query" class="search-container">
+  <h2>Search Results for "{{ query }}":</h2>
+
+  <ng-container *ngIf="hasResults(); else noResults">
+    <div *ngIf="songs.items.length">
+      <h2 class="section-title">Songs</h2>
+      <div class="carousel">
+        <mat-card class="media-card" *ngFor="let song of songs.paginatedItems" (click)="viewSong(song.id!)">
+          <div class="placeholder-artwork icon-song"></div>
+          <mat-card-content>
+            <mat-card-title>{{ song.title }}</mat-card-title>
+            <mat-card-subtitle>{{ song.artistsStageName?.join(', ') || '' }}</mat-card-subtitle>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="pagination">
+        <button mat-button (click)="songs.prevPage()">←</button>
+          <span>{{ songs.currentPage }}/{{ songs.totalPages }}</span>
+        <button mat-button (click)="songs.nextPage()">→</button>
+      </div>
+    </div>
+
+
+
+    <div *ngIf="albums.items.length">
+      <h2 class="section-title">Albums</h2>
+      <div class="carousel">
+        <mat-card class="media-card" *ngFor="let album of albums.paginatedItems" (click)="viewAlbum(album.id!)">
+          <div class="placeholder-artwork icon-album"></div>
+          <mat-card-content>
+            <mat-card-title>{{ album.title }}</mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="pagination">
+        <button mat-button (click)="albums.prevPage()">←</button>
+          <span>{{ albums.currentPage }}/{{ albums.totalPages }}</span>
+        <button mat-button (click)="albums.nextPage()">→</button>
+      </div>
+    </div>
+
+
+
+    <div *ngIf="artists.items.length">
+      <h2 class="section-title">Artists</h2>
+      <div class="carousel">
+        <mat-card class="media-card" *ngFor="let artist of artists.paginatedItems" (click)="viewArtist(artist.id!)">
+          <div class="placeholder-artwork icon-artist"></div>
+          <mat-card-content>
+            <mat-card-title>{{ artist.stageName || artist.bandName }}</mat-card-title>
+            <mat-card-subtitle>{{ artist.type === 'band' ? '' : (artist.firstName + ' ' + artist.lastName) }}</mat-card-subtitle>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="pagination">
+        <button mat-button (click)="artists.prevPage()">←</button>
+          <span>{{ artists.currentPage }}/{{ artists.totalPages }}</span>
+        <button mat-button (click)="artists.nextPage()">→</button>
+      </div>
+    </div>
+
+
+    <div *ngIf="playlists.items.length">
+      <h2 class="section-title">Playlists</h2>
+      <div class="carousel">
+        <mat-card class="media-card" *ngFor="let playlist of playlists.paginatedItems" (click)="viewPlaylist(playlist.id!)">
+          <div class="placeholder-artwork icon-playlist"></div>
+          <mat-card-content>
+            <mat-card-title>{{ playlist.name }}</mat-card-title>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="pagination">
+        <button mat-button (click)="playlists.prevPage()">←</button>
+          <span>{{ playlists.currentPage }}/{{ playlists.totalPages }}</span>
+        <button mat-button (click)="playlists.nextPage()">→</button>
+      </div>
+    </div>
+
+
+
+    <div *ngIf="users.items.length">
+      <h2 class="section-title">Users</h2>
+      <div class="carousel">
+        <mat-card class="media-card" *ngFor="let user of users.paginatedItems" (click)="viewUser(user.id!)">
+          <div class="placeholder-artwork icon-user"></div>
+          <mat-card-content>
+            <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+            <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="pagination">
+        <button mat-button (click)="users.prevPage()">←</button>
+          <span>{{ users.currentPage }}/{{ users.totalPages }}</span>
+        <button mat-button (click)="users.nextPage()">→</button>
+      </div>
+    </div>
+
+
+  </ng-container>
+
+  <ng-template #noResults>
+    <div class="no-results">
+      <mat-icon>search_off</mat-icon>
+      <p>No results found for "{{ query }}".</p>
+    </div>
+  </ng-template>
+</div>

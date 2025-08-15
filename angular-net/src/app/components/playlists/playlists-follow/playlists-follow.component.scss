@@ -1,0 +1,39 @@
+.playlists-follow {
+  background: var(--section-bg);
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 12px;
+
+  &__title {
+    font-size: 1.1rem;
+    color: var(--main-accent);
+  }
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  &__user, &__action {
+    flex: 1;
+    min-width: 180px;
+    max-width: 220px;
+  }
+  &__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    color: var(--secondary-accent);
+  }
+  &__field {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  &__btn {
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    min-width: 0;
+    background: var(--main-accent);
+    color: #fff;
+    border-radius: 6px;
+  }
+} 

@@ -1,0 +1,78 @@
+.add-song-dialog-container {
+  background: #23232b;
+  color: #fff;
+  border-radius: 18px;
+  padding: 24px 20px 16px 20px;
+  min-width: 0;
+  max-width: 310px;
+  width: 100%;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-x: hidden;
+}
+.add-song-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--main-accent);
+}
+.add-song-search-field {
+  width: 100%;
+  margin-bottom: 16px;
+  .mat-form-field-outline {
+    color: #fff;
+  }
+  .mat-input-element {
+    color: #fff;
+    background: transparent;
+    font-size: 1rem;
+  }
+  .mat-form-field-label {
+    color: #bbb;
+    font-size: 0.95rem;
+  }
+}
+.add-song-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  margin-left: 0;
+}
+button[mat-stroked-button], button[mat-raised-button] {
+  font-weight: 500;
+  border-radius: 8px;
+  min-width: 70px;
+  font-size: 0.95rem;
+}
+:host ::ng-deep .mat-mdc-input-element,
+:host ::ng-deep input[matInput],
+:host ::ng-deep .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-option,
+:host ::ng-deep .mat-mdc-option .mdc-list-item__primary-text {
+  color: #fff !important;
+  caret-color: #fff !important;
+  opacity: 1 !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+}
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-select-value-text,
+:host ::ng-deep .mat-mdc-select-placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #fff !important;
+}
+:host ::ng-deep .mdc-floating-label {
+  color: var(--secondary-accent) !important;
+}
+:host ::ng-deep .mat-mdc-form-field-infix::placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+} 

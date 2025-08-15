@@ -1,0 +1,24 @@
+<mat-card class="song-header-card">
+  <div class="song-header">
+    <mat-card class="song-cover placeholder-cover" appearance="outlined">
+      <div class="icon-container emoji-icon">👤</div>
+    </mat-card>
+    <div class="song-info">
+      <p class="mat-caption">User</p>
+      <h1 class="mat-display-1">{{ user?.firstName }} {{ user?.lastName }}</h1>
+      <p class="mat-subheading-2">
+        {{ user?.email }} • {{ user?.country }}
+      </p>
+    </div>
+  </div>
+</mat-card>
+
+<div class="user-section">
+  <h3>Public Playlists</h3>
+  <div class="artist-card-container">
+    <mat-card *ngFor="let playlist of playlists" class="artist-card-simple" appearance="outlined" (click)="viewPlaylist(playlist.id!)">
+      <mat-icon class="artist-card-icon">queue_music</mat-icon>
+      <mat-card-title>{{ playlist.name }}</mat-card-title>
+    </mat-card>
+  </div>
+</div>

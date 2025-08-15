@@ -1,0 +1,9 @@
+.cdk-overlay-container {
+  z-index: 10000;
+}
+
+.mat-select-panel,
+.mat-datepicker-popup {
+  z-index: 10001;
+}
+

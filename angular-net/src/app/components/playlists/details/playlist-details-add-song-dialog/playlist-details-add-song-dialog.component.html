@@ -1,0 +1,17 @@
+<div class="add-song-dialog-container">
+  <h2 class="add-song-title">Add Song to Playlist</h2>
+  <mat-form-field appearance="outline" class="add-song-search-field">
+    <mat-label>Search Songs</mat-label>
+    <input matInput [(ngModel)]="search" placeholder="Type to filter songs...">
+  </mat-form-field>
+  <mat-radio-group [(ngModel)]="selectedSong" class="add-song-list">
+    <mat-radio-button *ngFor="let song of filteredSongs()" [value]="song" class="add-song-radio">
+      <span class="add-song-title">{{ song.title }}</span>
+      <span class="add-song-artist">{{ song.artistsStageName?.join(', ') }}</span>
+    </mat-radio-button>
+  </mat-radio-group>
+  <div class="add-song-actions">
+    <button mat-stroked-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="accent" [disabled]="!selectedSong" (click)="onAdd()">Add</button>
+  </div>
+</div> 

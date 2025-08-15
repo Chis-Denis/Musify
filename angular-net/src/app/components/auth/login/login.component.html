@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          name="email"
+          [(ngModel)]="email"
+          (input)="validateEmail()"
+          required
+        />
+        <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="password" required />
+        <mat-error *ngIf="!password">{{ "Password is required" }}</mat-error>
+      </mat-form-field>
+
+      <mat-error *ngIf="error">{{ error }}</mat-error>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!email || !password">
+          Login
+        </button>
+      </mat-card-actions>
+
+      <div style="text-align: center; margin-top: 12px;">
+        <a [routerLink]="['/' + routePaths.forgotPassword]" class="auth-link">
+          Forgot your password?
+        </a>
+      </div>
+
+      <div style="text-align:center; margin-top: 16px;">
+        <span>Don't have an account?</span>
+        <a [routerLink]="['/' + routePaths.register]" class="auth-link" style="margin-left: 4px;">Register</a>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

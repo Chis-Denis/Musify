@@ -1,0 +1,93 @@
+<div class="playlist-management">
+  <form (ngSubmit)="onCreate()" class="playlist-management__form playlist-management__form--create">
+    <h4 class="playlist-management__form-title">Create Playlist</h4>
+    <mat-form-field appearance="fill" class="playlist-management__field">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="newName" name="newName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="playlist-management__field">
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="newType" name="newType">
+        <mat-option value="public">Public</mat-option>
+        <mat-option value="private">Private</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!isCreateFormValid" class="playlist-management__submit-btn">
+      Create
+    </button>
+  </form>
+
+  <div *ngIf="selected" class="playlist-management__form playlist-management__form--edit">
+    <h4 class="playlist-management__form-title">Edit Playlist: {{ selected.name }}</h4>
+    <form>
+      <mat-form-field appearance="fill" class="playlist-management__field">
+        <mat-label>New Name</mat-label>
+        <input matInput [(ngModel)]="updatedName" name="updatedName">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onUpdate()" [disabled]="!isUpdateFormValid" class="playlist-management__submit-btn">
+        Update
+      </button>
+      <button mat-button (click)="onCancel()" class="playlist-management__cancel-btn">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="selected">
+  <mat-card class="playlists-categories__playlist">
+    <div class="placeholder-artwork">
+      <div class="playlist-icon">🎵</div>
+    </div>
+    <mat-card-content>
+      <mat-card-title>{{ selected.name }}</mat-card-title>
+      <mat-card-subtitle>{{ userNames && userNames[selected.userId] ? userNames[selected.userId] : 'User ' + selected.userId }}</mat-card-subtitle>
+      <div class="playlist-info">
+        <span class="playlist-type" [ngClass]="{'public': selected.type === 'public', 'private': selected.type === 'private'}">{{ selected.type }}</span>
+        <span class="playlist-date">{{ selected.createdAt | date:'short' }}</span>
+      </div>
+      <form (ngSubmit)="onAddSong()" style="margin-top: 12px;">
+        <mat-form-field>
+          <mat-label>Add Song</mat-label>
+          <mat-select [(ngModel)]="selectedSongId" name="selectedSongId">
+            <mat-option *ngFor="let song of allSongs" [value]="song.id">
+              {{ song.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!selectedSongId">Add Song</button>
+      </form>
+      <form (ngSubmit)="onAddAlbum()" style="margin-top: 12px;">
+        <mat-form-field>
+          <mat-label>Add Album</mat-label>
+          <mat-select [(ngModel)]="selectedAlbumId" name="selectedAlbumId">
+            <mat-option *ngFor="let album of allAlbums" [value]="album.id">
+              {{ album.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!selectedAlbumId">Add Album</button>
+      </form>
+      <div *ngIf="playlistSongsInPlaylist && playlistSongsInPlaylist.length > 0" style="margin-top: 16px;">
+        <h5>Songs in Playlist:</h5>
+        <ul>
+          <li *ngFor="let song of playlistSongsInPlaylist">
+            {{ song.songTitle }}
+            <button mat-icon-button color="warn" (click)="onRemoveSong(song.songId)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="playlistAlbumsInPlaylist && playlistAlbumsInPlaylist.length > 0" style="margin-top: 16px;">
+        <h5>Albums in Playlist:</h5>
+        <ul>
+          <li *ngFor="let album of playlistAlbumsInPlaylist">
+            {{ album.albumTitle }}
+            <button *ngIf="album.albumId != null" mat-icon-button color="warn" (click)="onRemoveAlbum(album.albumId)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div> 

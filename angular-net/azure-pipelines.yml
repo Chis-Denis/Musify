@@ -1,0 +1,35 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  name: 'ARBSDEVOPSBUILD01_Shared'
+
+variables:
+  buildConfiguration: 'production'
+  angularProject: 'angular-net'  
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '22.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm ci
+    npm run build -- --configuration $(buildConfiguration) 
+  displayName: 'Install dependencies & Build Angular App'
+
+- task: CopyFiles@2
+  inputs:
+    contents: 'dist/$(angularProject)/**'
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy build output to artifact staging'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'angular-app'
+    publishLocation: 'Container'
+  displayName: 'Publish Angular build artifact'

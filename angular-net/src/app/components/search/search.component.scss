@@ -1,0 +1,190 @@
+.search-container {
+  padding: 2rem;
+  background-color: var(--section-bg) !important;
+  color: white;
+  min-height: 100vh;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  color: #fff;
+  border-bottom: 1px solid #333;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 8px 20px 16px;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(108, 92, 231, 0.2);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--secondary-accent);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(108, 92, 231, 0.8);
+  }
+}
+
+
+.media-card {
+  flex: 0 0 120px;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(255, 76, 96, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--secondary-accent);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.7),
+      0 4px 16px rgba(255, 76, 96, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    border-color: var(--main-accent);
+
+    .placeholder-artwork {
+      background: linear-gradient(135deg, var(--main-accent), var(--secondary-accent));
+
+      &::after {
+        opacity: 1;
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .placeholder-artwork {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, var(--secondary-accent), var(--main-accent));
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  mat-card-content {
+    padding: 12px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--card-bg);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  mat-card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    color: var(--primary-text) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  mat-card-subtitle {
+    font-size: 0.8rem;
+    color: var(--secondary-text) !important;
+    margin: 0;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+}
+
+.placeholder-artwork.icon-song::after {
+  content: '🎵';
+}
+.placeholder-artwork.icon-album::after {
+  content: '💿';
+}
+.placeholder-artwork.icon-artist::after {
+  content: '🎤';
+}
+.placeholder-artwork.icon-playlist::after {
+  content: '🎧';
+}
+.placeholder-artwork.icon-user::after {
+  content: '👤';
+}
+
+.placeholder-artwork.icon-song::after,
+.placeholder-artwork.icon-album::after,
+.placeholder-artwork.icon-artist::after,
+.placeholder-artwork.icon-playlist::after,
+.placeholder-artwork.icon-user::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  transition: all 0.3s ease;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--primary-text);
+
+  button[mat-button] {
+    color: var(--main-accent);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    line-height: 1;
+
+    &:hover {
+      color: var(--secondary-accent);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  }
+
+  span {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    min-width: 50px;
+    text-align: center;
+  }
+}

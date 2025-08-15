@@ -1,0 +1,99 @@
+.album-detail mat-card {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.album-detail {
+  background-color: var(--card-bg);
+}
+
+mat-card-content{
+  padding: 20px;
+  background-color: var(--card-bg);
+}
+
+mat-card-header {
+  background-color: var(--card-bg);
+  padding: 8px 20px;
+}
+
+mat-card-actions {
+  padding: 8px 20px;
+  background-color: var(--card-bg);
+}
+
+.album-header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.album-meta {
+  flex: 1;
+}
+
+.album-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+.album-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 16px 0;
+  color: var(--secondary-text);
+  font-size: 1rem;
+}
+
+
+.album-image{
+  width: 136px;
+  height: 140px;
+  background: linear-gradient(135deg, var(--secondary-accent) 0%, var(--main-accent) 100%);
+  border-radius: 10px;
+  position: relative;
+  
+  &::after {
+    content: '💿';
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    opacity: 0.9;
+  }
+}
+
+.songs-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+  color: #FFFFFF !important;
+}
+
+
+.album-detail .songs-table .mat-mdc-cell,
+.album-detail .songs-table .mat-mdc-header-cell,
+.album-detail .songs-table .mdc-data-table__cell {
+  color: #FFFFFF !important;
+}
+
+.text-muted {
+  color: var(--secondary-text);
+  font-size: 0.8rem;
+}
+ 
+
+.additional-info {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--secondary-bg);
+  border-radius: 8px;
+}

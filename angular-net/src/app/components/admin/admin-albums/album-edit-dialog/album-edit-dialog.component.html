@@ -1,0 +1,34 @@
+<div class="album-edit-dialog">
+
+<mat-dialog-content>
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Album Title</mat-label>
+        <input matInput name="title" [(ngModel)]="data.title" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Description</mat-label>
+        <input matInput name="description" [(ngModel)]="data.description" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Genre</mat-label>
+        <input matInput name="genre" [(ngModel)]="data.genre" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Release Date</mat-label>
+        <input matInput name="releaseDate" type="date" [max]="today | date:'DD/MM/YYYY'" [(ngModel)]="data.releaseDate" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Label</mat-label>
+        <input matInput name="label" [(ngModel)]="data.label" required />
+      </mat-form-field>
+
+</mat-dialog-content>
+</div>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Cancel</button>
+  <button mat-raised-button (click)="save()">Save</button>
+</mat-dialog-actions>

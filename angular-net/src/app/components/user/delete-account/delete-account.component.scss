@@ -1,0 +1,119 @@
+.delete-account-container {
+  margin-top: 1.5rem;
+  text-align: center;
+
+  button {
+    background: var(--main-accent) !important;
+    color: var(--primary-text) !important;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.confirmation-dialog {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .dialog-content {
+    background: var(--card-bg);
+    border: 2px solid var(--main-accent);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  .dialog-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+
+    mat-icon {
+      color: var(--main-accent);
+      font-size: 24px;
+    }
+
+    h3 {
+      color: var(--main-accent);
+      margin: 0;
+    }
+  }
+
+  .dialog-body {
+    margin-bottom: 20px;
+
+    p {
+      color: var(--primary-text);
+      margin: 8px 0;
+    }
+
+    .warning-text {
+      color: var(--main-accent);
+      background: rgba(255, 76, 96, 0.1);
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid var(--main-accent);
+    }
+
+    .data-warning {
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+  }
+
+  .dialog-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+
+    button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 76, 96, 0.8);
+      }
+    }
+
+    .cancel-btn {
+      background: transparent;
+      color: var(--secondary-text);
+      border: 1px solid var(--main-accent);
+
+      &:hover {
+        background: rgba(108, 92, 231, 0.1);
+        color: var(--primary-text);
+      }
+    }
+
+    .confirm-btn {
+      background: var(--card-bg) !important;
+      color: var(--primary-text) !important;
+      border: 1px solid var(--main-accent);
+
+      &:hover {
+        background: var(--card-bg) !important;
+        color: var(--main-accent) !important;
+        border-color: var(--main-accent);
+      }
+    }
+  }
+}

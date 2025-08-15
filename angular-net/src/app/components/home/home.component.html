@@ -1,0 +1,8 @@
+<app-navbar [user]="user" (search)="onSearch($event)">
+  <div class="home-content">
+    <router-outlet></router-outlet>
+    <app-trending-songs *ngIf="showExtras"></app-trending-songs>
+    <app-artist *ngIf="showExtras"></app-artist>
+  </div>
+</app-navbar>
+<app-music></app-music>

@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Albums</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div layout="row" layout-align="center center" class="main-div">
+            <div class="album-list-searches">
+                <mat-card
+                    *ngFor="let album of filteredAlbums.paginatedItems"
+                    class="album-card"
+                    [class.selected]="selectedAlbum?.id === album.id"
+                    (click)="selectAlbum(album)"
+                    tabindex="0"
+                    appearance="outlined">
+                    <div class="album-item">
+                        <div class="album-image"></div>
+                        <div>
+                            <div class="album-content">
+                            <div class="album-info" >
+                            <h3 class="album-title">{{ album.title }}</h3>
+                            <p class="album-artist">{{ artists[album.artistId] }}</p>
+                            <p class="album-genre">{{ album.genre }}</p>
+                            <p class="album-release-date">{{ album.releaseDate | date }}</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+                <div class="pagination">
+                      <button mat-button (click)="filteredAlbums.prevPage()">←</button>
+                        <span>{{ filteredAlbums.currentPage }}/{{ filteredAlbums.totalPages }}</span>
+                      <button mat-button (click)="filteredAlbums.nextPage()">→</button>
+                    </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <router-outlet></router-outlet>
+</mat-card>

@@ -1,0 +1,46 @@
+<div *ngIf="!loading; else loadingTpl" class="playlists">
+  <div class="playlists-pink">
+    <div class="playlists-header-row">
+      <app-playlists-categories
+        [filteredPlaylists]="filteredPlaylists"
+        [playlistFilter]="playlistFilter"
+        [followedPlaylists]="followedPlaylists"
+        [getFollowColor]="getFollowColor.bind(this)"
+        [getFollowIcon]="getFollowIcon.bind(this)"
+        [followUserId]="followUserId"
+        [userNames]="userNames"
+        [searchName]="searchName"
+        [searchResults]="searchResults"
+        [loading]="loading"
+        (searchNameChange)="onSearchNameChange($event)"
+        (filterChange)="setPlaylistFilter($event)"
+        (edit)="openEditPlaylistDialog($event)"
+        (delete)="deletePlaylist($event)"
+        (toggleFollow)="toggleFollowPlaylist($event)"
+        (viewPlaylist)="onViewPlaylist($event)"
+        (createPlaylist)="openCreatePlaylistDialog()"
+      ></app-playlists-categories>
+    </div>
+  </div>
+  <app-playlists-my-playlists
+    [followUserId]="followUserId"
+    [myPlaylistsView]="myPlaylistsView"
+    [followedPlaylists]="followedPlaylists"
+    [createdPlaylists]="createdPlaylists"
+    [loading]="loading"
+    [userNames]="userNames"
+    (viewChange)="onMyPlaylistsViewChange($event)"
+    (edit)="selectPlaylist($event)"
+    (delete)="deletePlaylist($event)"
+    (toggleFollow)="toggleFollowPlaylist($event)"
+    (viewPlaylist)="onViewPlaylist($event)"
+  ></app-playlists-my-playlists>
+
+</div>
+
+<ng-template #loadingTpl>
+  <div class="playlists__loading">
+    <mat-progress-spinner></mat-progress-spinner>
+    <p>Loading...</p>
+  </div>
+</ng-template>

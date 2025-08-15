@@ -1,0 +1,144 @@
+<div class="admin-albums-container">
+  <mat-card class="form-section">
+    <h3>Create New Album</h3>
+    
+    <form (ngSubmit)="createAlbum()" class="create-album-form">
+      <mat-form-field appearance="fill" class="inline-field">
+        <mat-label>Album Title</mat-label>
+        <input matInput name="title" [(ngModel)]="newAlbum.title" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="inline-field">
+        <mat-label>Artist</mat-label>
+        <mat-select [(ngModel)]="newAlbum.artistId" name="artistId" required>
+          <mat-option *ngFor="let artist of artists" [value]="artist.id">
+            {{ artist.type === 'band' ? artist.bandName : artist.stageName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="inline-field">
+        <mat-label>Description</mat-label>
+        <input matInput name="description" [(ngModel)]="newAlbum.description"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="inline-field">
+        <mat-label>Genre</mat-label>
+        <input matInput name="genre" [(ngModel)]="newAlbum.genre" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="inline-field">
+        <mat-label>Release Date</mat-label>
+              <input matInput type="date" name="releaseDate" [(ngModel)]="newAlbum.releaseDate" [max]="today | date:'DD/MM/YYYY'" required />
+      </mat-form-field>   
+
+      <mat-form-field appearance="fill" class="inline-field">
+        <mat-label>Label</mat-label>
+        <input matInput name="label" [(ngModel)]="newAlbum.label" required />
+      </mat-form-field>
+
+      <mat-error *ngIf="error">{{ error }}</mat-error>
+
+      <button mat-raised-button type="submit" [disabled]="!newAlbum.title || !newAlbum.artistId || !newAlbum.label || !newAlbum.genre || !newAlbum.releaseDate">
+        Create Album
+      </button>
+    </form>
+  </mat-card>
+
+  <mat-card class="table-section">
+    <div class="searches-inline">
+      <mat-form-field appearance="fill" class="search-field-inline">
+        <mat-label>Search by album</mat-label>
+        <input matInput [(ngModel)]="titleFilter" (ngModelChange)="applyFilters()" placeholder="Ex: Thriller, Abbey Road..." />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="search-field-inline">
+        <mat-label>Search by genre</mat-label>
+        <input matInput [(ngModel)]="genreFilter" (ngModelChange)="applyFilters()" placeholder="Ex: Rock, Pop..." />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="full-width-table">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let album"> {{ album.title }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="artist">
+        <th mat-header-cell *matHeaderCellDef> Artist </th>
+        <td mat-cell *matCellDef="let album">
+          <ng-container *ngIf="editingField[album.id] === 'artist'; else displayArtist">
+            <mat-form-field class="full-width">
+              <mat-select [(ngModel)]="album.artistId" (selectionChange)="editPartialAlbum(album)" name="artistId">
+                <mat-option *ngFor="let artist of artists" [value]="artist.id">
+                  {{ artist.type === 'band' ? artist.bandName : artist.stageName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </ng-container>
+          <ng-template #displayArtist>
+            {{ artistNames[album.artistId] }}
+          </ng-template>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="releaseDate">
+        <th mat-header-cell *matHeaderCellDef> Release Date </th>
+        <td mat-cell *matCellDef="let album">
+          <ng-container *ngIf="editingField[album.id] === 'releaseDate'; else displayDate">
+            <mat-form-field class="full-width">
+              <input matInput type="date" name="releaseDate" [(ngModel)]="newAlbum.releaseDate" [max]="today | date:'DD/MM/YYYY'" (change)="editPartialAlbum(album)" required />
+            </mat-form-field>
+          </ng-container>
+          <ng-template #displayDate>
+            {{ album.releaseDate | date }}
+          </ng-template>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let album"> 
+          {{ album.description }} 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="label">
+        <th mat-header-cell *matHeaderCellDef> Label </th>
+        <td mat-cell *matCellDef="let album"> {{ album.label }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="genre">
+        <th mat-header-cell *matHeaderCellDef> Genre </th>
+        <td mat-cell *matCellDef="let album"> {{ album.genre }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let album">
+          <button mat-icon-button color="accent" (click)="editAlbum(album)" title="Edit Album">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="setEditingField(album.id, 'artist')" title="Edit Artist">
+            <mat-icon>person</mat-icon>
+          </button>
+          <button mat-icon-button color="primary"  (click)="editAlbumSongs(album)" title="Add Songs" >
+            <mat-icon>playlist_add</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAlbum(album.id)" title="Delete Album">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['title', 'artist', 'description','genre','releaseDate', 'label', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['title', 'artist', 'description','genre','releaseDate', 'label', 'actions']"></tr>
+    </table>
+
+    <div class="paginator-container">
+      <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card>
+</div>

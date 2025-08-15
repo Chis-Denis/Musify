@@ -1,0 +1,192 @@
+.album-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+}
+
+.album-image {
+    width: 136px;
+    height: 140px;
+    background: linear-gradient(135deg, var(--secondary-accent) 0%, var(--main-accent) 100%);
+    border-radius: 10px;
+    position: relative;
+    flex-shrink: 0;
+
+    &::after {
+        content: '💿';
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2.5rem;
+        opacity: 0.9;
+    }
+}
+
+.album-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 140px;
+}
+
+.album-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.album-title {
+    color: var(--primary-text);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.album-artist {
+    color: var(--secondary-text);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.album-genre {
+    color: var(--secondary-accent);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.album-release-date {
+    color: var(--secondary-text);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.2;
+    opacity: 0.8;
+}
+
+.album-card {
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(108, 92, 231, 0.3) !important;
+    background: var(--card-bg) !important;
+
+    &:hover {
+        border-color: var(--secondary-accent) !important;
+        box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+        transform: translateY(-2px);
+    }
+
+    &.selected {
+        border-color: var(--main-accent) !important;
+        box-shadow: 0 6px 16px rgba(255, 76, 96, 0.3);
+        background: rgba(255, 76, 96, 0.05) !important;
+    }
+}
+
+.searches {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-field {
+    min-width: 250px;
+    flex: 1;
+}
+
+.main-div {
+    width: 100%;
+}
+
+.album-list-searches {
+    width: 100%;
+}
+
+.paginator-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 24px;
+}
+
+::ng-deep .mat-paginator button.mat-icon-button {
+    background-color: var(--primary-text) !important;
+    color: var(--primary-text) !important;
+}
+
+
+mat-paginator {
+    margin-top: 24px;
+    background: var(--card-bg) !important;
+    color: var(--primary-text) !important;
+    border-radius: 8px;
+}
+
+mat-card-content {
+    background-color: var(--card-bg) !important;
+}
+
+mat-card-header {
+    background-color: var(--card-bg) !important;
+    color: var(--primary-text) !important;
+}
+
+input ::placeholder{
+    color: var(--secondary-text);
+}
+
+mat-card-title{
+    margin-bottom: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #0d0924;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--primary-text);
+
+  button[mat-button] {
+    color: var(--main-accent);
+    background-color: #0d0924;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    line-height: 1;
+
+    &:hover {
+      color: var(--secondary-accent);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  }
+
+  span {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    min-width: 50px;
+    text-align: center;
+  }
+}
+

@@ -1,0 +1,515 @@
+// Replace the entire content with this structure matching admin-users exactly
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 20px 20px 20px;
+  background-color: var(--section-bg);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.admin-songs-container {
+  margin: 0;
+  padding: 20px;
+  background: var(--section-bg);
+  min-height: 100vh;
+  position: relative;
+  overflow: visible;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--primary-text);
+  text-align: center;
+}
+
+.form-section {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--secondary-accent);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(255, 76, 96, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.7),
+      0 4px 16px rgba(255, 76, 96, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: var(--main-accent);
+  }
+
+  h3 {
+    width: 100%;
+    color: var(--main-accent) !important;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  mat-form-field {
+    flex: 1 1 200px;
+    min-width: 200px; 
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  button[mat-raised-button] {
+    background: var(--main-accent) !important;
+    color: var(--primary-text) !important;
+    border: 2px solid var(--main-accent) !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 
+      0 4px 12px rgba(255, 76, 96, 0.3),
+      0 2px 6px rgba(0, 0, 0, 0.2) !important;
+    
+    width: auto !important;
+    min-width: auto !important;
+    flex: 0 0 auto !important;
+    
+    &:hover {
+      background: rgba(255, 76, 96, 0.9) !important;
+      border-color: rgba(255, 76, 96, 0.9) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 
+        0 6px 20px rgba(255, 76, 96, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    &:active {
+      transform: translateY(0) !important;
+      box-shadow: 
+        0 2px 8px rgba(255, 76, 96, 0.3),
+        0 1px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    &:disabled {
+      opacity: 0.5 !important;
+      cursor: not-allowed !important;
+      transform: none !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+      
+      &:hover {
+        background: var(--main-accent) !important;
+        transform: none !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+      }
+    }
+  }
+}
+
+// Combined table section with filter
+.table-section {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--secondary-accent);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(255, 76, 96, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.7),
+      0 4px 16px rgba(255, 76, 96, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: var(--main-accent);
+  }
+}
+
+// Copy exact title-filter styling from admin-users (renamed from email-filter)
+.title-filter {
+  width: 100% !important;
+  max-width: 400px !important; 
+  min-width: 250px !important; 
+  margin-bottom: 20px !important; 
+  background: var(--card-bg) !important;
+  border-radius: 8px;
+  flex: 0 0 auto !important;
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  background: transparent !important;
+  border-radius: 8px;
+  padding: 8px 0;
+  border: none !important;
+}
+
+// Paginator styling
+.mat-mdc-paginator {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-radius: 8px;
+
+  .mat-mdc-paginator-page-size-label,
+  .mat-mdc-paginator-range-label {
+    color: var(--primary-text) !important;
+  }
+
+  button {
+    color: var(--secondary-accent) !important;
+
+    &:hover {
+      background: rgba(108, 92, 231, 0.1) !important;
+    }
+
+    &:disabled {
+      color: var(--secondary-text) !important;
+    }
+  }
+}
+
+// Table styling
+.mat-elevation-z8 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--secondary-accent) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(255, 76, 96, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+table {
+  width: 100%;
+  background: var(--card-bg) !important;
+}
+
+th.mat-header-cell {
+  background: var(--secondary-accent) !important;
+  color: var(--primary-text) !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 16px 12px;
+  text-align: center;
+  border-bottom: 2px solid var(--main-accent) !important;
+}
+
+td.mat-cell {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--secondary-accent) !important;
+}
+
+tr.mat-row:hover {
+  background: rgba(108, 92, 231, 0.1) !important;
+}
+
+tr.mat-row:nth-child(even) {
+  background: rgba(26, 26, 46, 0.5) !important;
+}
+
+tr.mat-row:nth-child(even):hover {
+  background: rgba(108, 92, 231, 0.15) !important;
+}
+
+// Action buttons in table
+button[mat-icon-button] {
+  background: transparent !important;
+  border: 1px solid var(--secondary-accent) !important;
+  border-radius: 6px !important;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(108, 92, 231, 0.2) !important;
+    border-color: var(--main-accent) !important;
+    transform: scale(1.05);
+  }
+
+  mat-icon {
+    color: var(--secondary-accent) !important;
+    font-size: 18px;
+  }
+
+  &[color="warn"] {
+    border-color: var(--main-accent) !important;
+
+    mat-icon {
+      color: var(--main-accent) !important;
+    }
+
+    &:hover {
+      background: rgba(255, 76, 96, 0.2) !important;
+    }
+  }
+
+  &[color="accent"] {
+    border-color: var(--secondary-accent) !important;
+
+    mat-icon {
+      color: var(--secondary-accent) !important;
+    }
+
+    &:hover {
+      background: rgba(108, 92, 231, 0.2) !important;
+      border-color: var(--main-accent) !important;
+      
+      mat-icon {
+        color: var(--main-accent) !important;
+      }
+    }
+  }
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  background: transparent !important;
+  border-radius: 8px;
+  padding: 8px 0;
+  border: none !important;
+}
+
+// Paginator styling
+.mat-mdc-paginator {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-radius: 8px;
+
+  .mat-mdc-paginator-page-size-label,
+  .mat-mdc-paginator-range-label {
+    color: var(--primary-text) !important;
+  }
+
+  button {
+    color: var(--secondary-accent) !important;
+
+    &:hover {
+      background: rgba(108, 92, 231, 0.1) !important;
+    }
+
+    &:disabled {
+      color: var(--secondary-text) !important;
+    }
+  }
+}
+
+// Table styling
+.mat-elevation-z8 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--secondary-accent) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(255, 76, 96, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+table {
+  width: 100%;
+  background: var(--card-bg) !important;
+}
+
+th.mat-header-cell {
+  background: var(--secondary-accent) !important;
+  color: var(--primary-text) !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 16px 12px;
+  text-align: center;
+  border-bottom: 2px solid var(--main-accent) !important;
+}
+
+td.mat-cell {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--secondary-accent) !important;
+}
+
+tr.mat-row:hover {
+  background: rgba(108, 92, 231, 0.1) !important;
+}
+
+tr.mat-row:nth-child(even) {
+  background: rgba(26, 26, 46, 0.5) !important;
+}
+
+tr.mat-row:nth-child(even):hover {
+  background: rgba(108, 92, 231, 0.15) !important;
+}
+
+// Form field styling to match admin-users exactly
+:host ::ng-deep .mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mat-mdc-text-field-wrapper:hover {
+    border-color: var(--main-accent) !important;
+  }
+
+  .mat-mdc-text-field-wrapper.mdc-text-field--focused {
+    border-color: var(--main-accent) !important;
+    box-shadow: 0 0 0 2px rgba(255, 76, 96, 0.2) !important;
+  }
+
+  .mat-mdc-input-element {
+    color: var(--primary-text) !important;
+    caret-color: var(--primary-text) !important;
+    background: transparent !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mdc-floating-label {
+    color: var(--secondary-accent) !important;
+  }
+
+  &.mat-focused .mdc-floating-label {
+    color: var(--main-accent) !important;
+  }
+
+  .mat-mdc-form-field-flex {
+    background: var(--card-bg) !important;
+    border-radius: 8px !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mat-mdc-form-field-focus-overlay {
+    background: transparent !important;
+    display: none !important;
+  }
+
+  .mdc-line-ripple {
+    display: none !important;
+  }
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    display: none !important;
+  }
+
+  .mat-mdc-form-field-infix {
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent !important;
+  }
+
+  .mat-mdc-form-field-icon-suffix {
+    color: var(--secondary-accent) !important;
+    
+    mat-icon {
+      color: var(--secondary-accent) !important;
+    }
+  }
+}
+
+// Select dropdown styling
+:host ::ng-deep .mat-mdc-select {
+  .mat-mdc-select-value {
+    color: var(--primary-text) !important;
+  }
+
+  .mat-mdc-select-arrow {
+    color: var(--secondary-accent) !important;
+  }
+}
+
+:host ::ng-deep .mat-mdc-select-panel {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--secondary-accent) !important;
+  border-radius: 8px !important;
+}
+
+:host ::ng-deep .mat-mdc-option {
+  color: var(--primary-text) !important;
+
+  &:hover {
+    background: rgba(108, 92, 231, 0.1) !important;
+  }
+
+  &.mdc-list-item--selected {
+    background: rgba(255, 76, 96, 0.2) !important;
+    color: var(--main-accent) !important;
+  }
+}
+
+// Paginator select visibility fix
+:host ::ng-deep {
+  .mat-mdc-paginator {
+    .mat-mdc-select {
+      .mat-mdc-select-value {
+        color: var(--primary-text) !important;
+      }
+      
+      .mat-mdc-select-value-text {
+        color: var(--primary-text) !important;
+      }
+      
+      .mat-mdc-select-min-line {
+        color: var(--primary-text) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      
+      .mat-mdc-select-arrow {
+        color: var(--secondary-accent) !important;
+      }
+    }
+    
+    .mat-mdc-form-field {
+      .mat-mdc-text-field-wrapper {
+        background: var(--card-bg) !important;
+        border: 1px solid var(--secondary-accent) !important;
+        border-radius: 4px !important;
+      }
+      
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--secondary-accent) !important;
+      }
+    }
+  }
+}

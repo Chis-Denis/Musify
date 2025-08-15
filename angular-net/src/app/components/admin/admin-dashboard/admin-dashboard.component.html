@@ -1,0 +1,60 @@
+<button mat-stroked-button class="back-button" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+  Back
+</button>
+
+<!-- =================== SONGS =================== -->
+<mat-card class="songs-section">
+  <mat-card-title>
+    Songs
+    <button mat-icon-button (click)="showSongs = !showSongs">
+      <mat-icon>{{ showSongs ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </button>
+  </mat-card-title>
+
+  <div *ngIf="showSongs">
+    <app-admin-songs></app-admin-songs>
+  </div>
+</mat-card>
+
+<!-- =================== ALBUMS =================== -->
+<mat-card class="albums-section">
+  <mat-card-title>
+    Albums
+    <button mat-icon-button (click)="showAlbums = !showAlbums">
+      <mat-icon>{{ showAlbums ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </button>
+
+  </mat-card-title>
+    <div *ngIf="showAlbums">
+        <app-admin-albums></app-admin-albums>
+    </div>
+</mat-card>
+
+<!-- =================== ARTISTS =================== -->
+<mat-card class="artists-section">
+  <mat-card-title>
+    Artists
+    <button mat-icon-button (click)="showArtists = !showArtists">
+      <mat-icon>{{ showArtists ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </button>
+  </mat-card-title>
+
+  <div *ngIf="showArtists">
+    <app-admin-artists></app-admin-artists>
+  </div>
+</mat-card>
+
+<!-- =================== USERS =================== -->
+<mat-card class="users-section">
+  <mat-card-title>
+    Users
+    <button mat-icon-button (click)="showUsers = !showUsers">
+      <mat-icon>{{ showUsers ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </button>
+  </mat-card-title>
+
+  <div *ngIf="showUsers">
+    <app-admin-users></app-admin-users>
+  </div>
+</mat-card>

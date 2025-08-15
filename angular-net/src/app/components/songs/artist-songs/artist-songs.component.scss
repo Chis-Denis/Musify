@@ -1,0 +1,11 @@
+.song-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.song-card {
+  width: 200px;
+  min-height: 80px;
+}

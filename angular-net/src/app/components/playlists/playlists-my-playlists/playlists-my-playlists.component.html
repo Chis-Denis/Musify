@@ -1,0 +1,74 @@
+<div class="my-playlists">
+  <h3 class="my-playlists__title">My Playlists</h3>
+  <div class="my-playlists__controls">
+    <button mat-stroked-button [color]="myPlaylistsView === 'followed' ? 'primary' : null" (click)="onViewChange('followed')" class="my-playlists__btn" [ngClass]="{'active-category': myPlaylistsView === 'followed'}">
+      ❤️ Followed
+    </button>
+    <button mat-stroked-button [color]="myPlaylistsView === 'created' ? 'primary' : null" (click)="onViewChange('created')" class="my-playlists__btn" [ngClass]="{'active-category': myPlaylistsView === 'created'}">
+      📝 Created by Me
+    </button>
+  </div>
+  <div *ngIf="followUserId; else enterUserIdFirst">
+    <ng-container *ngIf="myPlaylistsView === 'followed'">
+      <h5 class="my-playlists__subtitle">Playlists You Follow</h5>
+      <div class="carousel">
+        <ng-container *ngIf="followedPlaylists.length > 0; else noFollowed">
+          <mat-card *ngFor="let playlist of followedPlaylists" class="playlists-categories__playlist" (click)="onViewPlaylist(playlist)">
+            <div class="placeholder-artwork">
+              <div class="playlist-icon">🎵</div>
+            </div>
+            <mat-card-content>
+              <mat-card-title>{{ playlist.name }}</mat-card-title>
+              <mat-card-subtitle>{{ userNames && userNames[playlist.userId] ? userNames[playlist.userId] : 'User ' + playlist.userId }}</mat-card-subtitle>
+              <div class="playlist-info">
+                <span class="playlist-type" [ngClass]="{'public': playlist.type === 'public', 'private': playlist.type === 'private'}">{{ playlist.type }}</span>
+                <span class="playlist-date">{{ playlist.createdAt | date:'short' }}</span>
+              </div>
+            </mat-card-content>
+            <mat-card-actions class="playlists-categories__actions">
+              <button mat-icon-button matTooltip="Edit" (click)="$event.stopPropagation(); onEdit(playlist)"><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button matTooltip="Delete" (click)="$event.stopPropagation(); onDelete(playlist.id)"><mat-icon>delete</mat-icon></button>
+              <button mat-icon-button matTooltip="Unfollow" (click)="$event.stopPropagation(); onToggleFollow(playlist)"><mat-icon>favorite</mat-icon></button>
+            </mat-card-actions>
+          </mat-card>
+        </ng-container>
+      </div>
+      <ng-template #noFollowed>
+        <p class="my-playlists__empty">No followed playlists.</p>
+      </ng-template>
+    </ng-container>
+    <ng-container *ngIf="myPlaylistsView === 'created'">
+      <h5 class="my-playlists__subtitle">Playlists You Created</h5>
+      <div class="carousel">
+        <ng-container *ngIf="createdPlaylists.length > 0; else noCreated">
+          <mat-card *ngFor="let playlist of createdPlaylists" class="playlists-categories__playlist" (click)="onViewPlaylist(playlist)">
+            <div class="placeholder-artwork">
+              <div class="playlist-icon">🎵</div>
+            </div>
+            <mat-card-content>
+              <mat-card-title>{{ playlist.name }}</mat-card-title>
+              <mat-card-subtitle>{{ userNames && userNames[playlist.userId] ? userNames[playlist.userId] : 'User ' + playlist.userId }}</mat-card-subtitle>
+              <div class="playlist-info">
+                <span class="playlist-type" [ngClass]="{'public': playlist.type === 'public', 'private': playlist.type === 'private'}">{{ playlist.type }}</span>
+                <span class="playlist-date">{{ playlist.createdAt | date:'short' }}</span>
+              </div>
+            </mat-card-content>
+            <mat-card-actions class="playlists-categories__actions">
+              <button mat-icon-button matTooltip="Edit" (click)="$event.stopPropagation(); onEdit(playlist)"><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button matTooltip="Delete" (click)="$event.stopPropagation(); onDelete(playlist.id)"><mat-icon>delete</mat-icon></button>
+              <button mat-icon-button matTooltip="Follow/Unfollow" (click)="$event.stopPropagation(); onToggleFollow(playlist)">
+                <mat-icon>{{ isFollowed(playlist) ? 'favorite' : 'favorite_border' }}</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </ng-container>
+      </div>
+      <ng-template #noCreated>
+        <p class="my-playlists__empty">No created playlists.</p>
+      </ng-template>
+    </ng-container>
+  </div>
+  <ng-template #enterUserIdFirst>
+    <p class="my-playlists__empty">Please enter your User ID to view your playlists.</p>
+  </ng-template>
+</div> 

@@ -1,0 +1,611 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 20px 20px 20px; 
+  background-color: var(--section-bg);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.admin-albums-container {
+  margin: 0;
+  padding: 20px;
+  padding-top: 0; // Remove top padding since it's in :host
+  background: var(--section-bg);
+  min-height: 100vh;
+  position: relative;
+  overflow: visible;
+  width: 100%;
+}
+
+.create-album-form {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.inline-field {
+  flex: 1 1 200px;
+  min-width: 200px; 
+}
+
+.form-section {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--secondary-accent);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  margin-top: 20px; // Add consistent top margin to match admin-artists
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(255, 76, 96, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.7),
+      0 4px 16px rgba(255, 76, 96, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: var(--main-accent);
+  }
+
+  h3 {
+    color: var(--main-accent) !important;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  // Match admin-artists mat-form-field styling
+  mat-form-field {
+    flex: 1 1 200px;
+    min-width: 200px; 
+  }
+}
+
+.table-section {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--secondary-accent);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(255, 76, 96, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.7),
+      0 4px 16px rgba(255, 76, 96, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: var(--main-accent);
+  }
+}
+
+// Update form field styling to match admin-artists pattern
+:host ::ng-deep .mat-mdc-form-field {
+  width: 100%;
+  
+  .mat-mdc-text-field-wrapper {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mat-mdc-text-field-wrapper:hover {
+    border-color: var(--main-accent) !important;
+  }
+
+  .mat-mdc-text-field-wrapper.mdc-text-field--focused {
+    border-color: var(--main-accent) !important;
+    box-shadow: 0 0 0 2px rgba(255, 76, 96, 0.2) !important;
+  }
+
+  .mat-mdc-input-element {
+    color: var(--primary-text) !important;
+    caret-color: var(--primary-text) !important;
+    background: transparent !important;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px !important; 
+  }
+
+  .mdc-floating-label {
+    color: var(--secondary-accent) !important;
+    font-size: 16px !important;
+  }
+
+  &.mat-focused .mdc-floating-label {
+    color: var(--main-accent) !important;
+  }
+
+  .mat-mdc-form-field-flex {
+    background: var(--card-bg) !important;
+    border-radius: 8px !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mat-mdc-form-field-focus-overlay {
+    background: transparent !important;
+    display: none !important;
+  }
+
+  .mdc-line-ripple {
+    display: none !important;
+  }
+
+  .mdc-notched-outline__leading,
+  .mdc-notched-outline__notch,
+  .mdc-notched-outline__trailing {
+    display: none !important;
+  }
+
+  .mat-mdc-form-field-infix {
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent !important;
+  }
+}
+
+// Update select styling to match admin-artists
+:host ::ng-deep .mat-mdc-select {
+  .mat-mdc-select-trigger {
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    min-height: 32px !important;
+    font-size: 16px !important; 
+  }
+  
+  .mat-mdc-select-value {
+    color: var(--primary-text) !important;
+    font-size: 16px !important;
+  }
+
+  .mat-mdc-select-arrow {
+    color: var(--secondary-accent) !important;
+    transform: scale(1) !important;
+  }
+  
+  .mat-mdc-select-placeholder {
+    color: var(--secondary-text) !important;
+  }
+}
+
+// Global select panel styling
+::ng-deep .cdk-overlay-connected-position-bounding-box {
+  z-index: 100000 !important;
+  
+  .mat-mdc-select-panel {
+    z-index: 100001 !important;
+    background: var(--card-bg) !important;
+    border: 2px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    
+    .mat-mdc-option {
+      background: var(--card-bg) !important;
+      color: var(--primary-text) !important;
+      padding: 12px 16px !important;
+      
+      &:hover {
+        background: rgba(108, 92, 231, 0.2) !important;
+      }
+
+      &.mdc-list-item--selected {
+        background: rgba(255, 76, 96, 0.2) !important;
+        color: var(--main-accent) !important;
+      }
+    }
+  }
+}
+
+// Button styling to match admin-artists and admin-songs
+button[mat-raised-button] {
+  background: var(--main-accent) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--main-accent) !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 
+    0 4px 12px rgba(255, 76, 96, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.2) !important;
+  
+  width: auto !important;
+  min-width: 150px !important;
+  flex: 0 0 auto !important;
+  margin-top: 0px !important;
+  align-self: center !important;
+  
+  &:hover {
+    background: rgba(255, 76, 96, 0.9) !important;
+    border-color: rgba(255, 76, 96, 0.9) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 
+      0 6px 20px rgba(255, 76, 96, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  &:active {
+    transform: translateY(0) !important;
+    box-shadow: 
+      0 2px 8px rgba(255, 76, 96, 0.3),
+      0 1px 4px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  &:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+.searches-inline {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  
+  .search-field-inline {
+    flex: 1 1 300px;
+    min-width: 250px;
+    max-width: 400px; // Prevent fields from getting too wide
+  }
+}
+
+// Update search field styling to match admin-artists pattern
+.search-field-inline {
+  width: 100% !important;
+  background: var(--card-bg) !important;
+}
+
+// Update form field styling specifically for inline search fields
+:host ::ng-deep {
+  // Inline search field specific styling to match admin-artists
+  .search-field-inline .mat-mdc-form-field {
+    width: 100% !important;
+    
+    .mat-mdc-text-field-wrapper {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--secondary-accent) !important;
+      border-radius: 8px !important;
+      transition: all 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .mat-mdc-text-field-wrapper:hover {
+      border-color: var(--main-accent) !important;
+    }
+
+    .mat-mdc-text-field-wrapper.mdc-text-field--focused {
+      border-color: var(--main-accent) !important;
+      box-shadow: 0 0 0 2px rgba(255, 76, 96, 0.2) !important;
+    }
+
+    .mat-mdc-input-element {
+      color: var(--primary-text) !important;
+      caret-color: var(--primary-text) !important;
+      background: transparent !important;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px !important; 
+    }
+
+    .mdc-floating-label {
+      color: var(--secondary-accent) !important;
+      font-size: 16px !important;
+    }
+
+    &.mat-focused .mdc-floating-label {
+      color: var(--main-accent) !important;
+    }
+
+    .mat-mdc-form-field-flex {
+      background: var(--card-bg) !important;
+      border-radius: 8px !important;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .mat-mdc-form-field-focus-overlay {
+      background: transparent !important;
+      display: none !important;
+    }
+
+    .mdc-line-ripple {
+      display: none !important;
+    }
+
+    // Hide Material outline since we're using custom borders
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      display: none !important;
+    }
+
+    .mat-mdc-form-field-infix {
+      width: 100%;
+      box-sizing: border-box;
+      background: transparent !important;
+    }
+
+    // Style the suffix icon (search icon)
+    .mat-mdc-form-field-icon-suffix {
+      color: var(--secondary-accent) !important;
+      
+      mat-icon {
+        color: var(--secondary-accent) !important;
+      }
+    }
+  }
+
+  // Override fill styling for inline search fields
+  .search-field-inline.mat-form-field-appearance-fill {
+    .mat-mdc-text-field-wrapper {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--secondary-accent) !important;
+      border-radius: 8px !important;
+    }
+
+    .mat-mdc-text-field-wrapper:hover {
+      border-color: var(--main-accent) !important;
+    }
+
+    .mat-mdc-text-field-wrapper.mdc-text-field--focused {
+      border-color: var(--main-accent) !important;
+      box-shadow: 0 0 0 2px rgba(255, 76, 96, 0.2) !important;
+    }
+
+    .mdc-line-ripple {
+      display: none !important;
+    }
+  }
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  background: transparent !important;
+  border-radius: 8px;
+  padding: 8px 0;
+  border: none !important;
+}
+
+// Enhanced Paginator styling with select dropdown fix
+.mat-mdc-paginator {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-radius: 8px;
+
+  .mat-mdc-paginator-page-size-label,
+  .mat-mdc-paginator-range-label {
+    color: var(--primary-text) !important;
+  }
+
+  button {
+    color: var(--secondary-accent) !important;
+
+    &:hover {
+      background: rgba(108, 92, 231, 0.1) !important;
+    }
+
+    &:disabled {
+      color: var(--secondary-text) !important;
+    }
+  }
+
+  // Fix for page size select dropdown
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      background: var(--card-bg) !important;
+    }
+    
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: var(--secondary-accent) !important;
+    }
+  }
+
+  .mat-mdc-select {
+    .mat-mdc-select-value,
+    .mat-mdc-select-value-text,
+    .mat-mdc-select-min-line {
+      color: var(--primary-text) !important;
+    }
+    
+    .mat-mdc-select-arrow {
+      color: var(--secondary-accent) !important;
+    }
+  }
+}
+
+// Add specific styling for paginator select panel
+:host ::ng-deep {
+  // Paginator select panel styling
+  .mat-mdc-paginator {
+    .mat-mdc-select {
+      .mat-mdc-select-value {
+        color: var(--primary-text) !important;
+      }
+      
+      .mat-mdc-select-value-text {
+        color: var(--primary-text) !important;
+      }
+      
+      .mat-mdc-select-min-line {
+        color: var(--primary-text) !important;
+      }
+      
+      .mat-mdc-select-arrow {
+        color: var(--secondary-accent) !important;
+      }
+    }
+    
+    .mat-mdc-form-field {
+      .mat-mdc-text-field-wrapper {
+        background: var(--card-bg) !important;
+      }
+      
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--secondary-accent) !important;
+      }
+    }
+  }
+  
+  // Style the dropdown panel when it opens
+  .mat-mdc-select-panel {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    
+    .mat-mdc-option {
+      background: var(--card-bg) !important;
+      color: var(--primary-text) !important;
+      
+      &:hover {
+        background: rgba(108, 92, 231, 0.1) !important;
+      }
+      
+      &.mdc-list-item--selected {
+        background: rgba(255, 76, 96, 0.2) !important;
+        color: var(--main-accent) !important;
+      }
+      
+      .mdc-list-item__primary-text {
+        color: var(--primary-text) !important;
+      }
+    }
+  }
+}
+
+// Form field specific overrides for this component
+:host ::ng-deep .mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+  }
+
+  .mat-mdc-input-element {
+    color: var(--primary-text) !important;
+  }
+
+  .mdc-floating-label {
+    color: var(--secondary-accent) !important;
+  }
+
+  &.mat-focused .mdc-floating-label {
+    color: var(--main-accent) !important;
+  }
+}
+
+// Select dropdown styling
+:host ::ng-deep .mat-mdc-select {
+  .mat-mdc-select-value {
+    color: var(--primary-text) !important;
+  }
+
+  .mat-mdc-select-arrow {
+    color: var(--secondary-accent) !important;
+  }
+}
+
+:host ::ng-deep .mat-mdc-select-panel {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--secondary-accent) !important;
+  border-radius: 8px !important;
+}
+
+:host ::ng-deep .mat-mdc-option {
+  color: var(--primary-text) !important;
+
+  &:hover {
+    background: rgba(108, 92, 231, 0.1) !important;
+  }
+
+  &.mdc-list-item--selected {
+    background: rgba(255, 76, 96, 0.1) !important;
+    color: var(--main-accent) !important;
+  }
+}
+.full-width-table {
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--secondary-accent) !important;
+  table-layout: fixed;
+  box-shadow: none !important;
+  background: var(--card-bg) !important;
+
+  th {
+    background-color: var(--secondary-accent) !important;
+    color: var(--primary-text) !important;
+    font-weight: 600;
+  }
+
+  td {
+    background-color: var(--card-bg) !important;
+    color: var(--primary-text) !important;
+    border-bottom: 1px solid rgba(108, 92, 231, 0.3);
+  }
+
+  tr:hover td {
+    background-color: rgba(108, 92, 231, 0.1) !important;
+  }
+
+  .mat-mdc-header-cell {
+    background: var(--secondary-accent) !important;
+    color: var(--primary-text) !important;
+  }
+
+  .mat-mdc-cell {
+    background: var(--card-bg) !important;
+    color: var(--primary-text) !important;
+  }
+
+  .mat-mdc-row:hover .mat-mdc-cell {
+    background: rgba(108, 92, 231, 0.1) !important;
+  }
+}
+
+

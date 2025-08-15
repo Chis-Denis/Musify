@@ -1,0 +1,29 @@
+<h2>Vezi piesele unui artist</h2>
+
+<mat-form-field appearance="fill" class="full-width">
+  <mat-label>Selectează artist</mat-label>
+  <mat-select [(ngModel)]="selectedArtistId" (selectionChange)="onArtistSelected()">
+    <mat-option *ngFor="let artist of artists" [value]="artist.id">
+      {{ artist.stageName || artist.bandName || (artist.firstName + ' ' + artist.lastName) }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div *ngIf="artistSongs.length > 0" class="song-cards-container">
+  <h3>Piese:</h3>
+  <mat-card
+    *ngFor="let song of artistSongs"
+    class="song-card"
+    style="cursor: pointer"
+    (click)="goToSongDetails(song.id)">
+    <mat-card-title>{{ song.title }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ song.creationDate | date: 'longDate' }} •
+      {{ song.duration?.minutes || 0 }}:{{ (song.duration?.seconds ?? 0) | number: '2.0' }} minute
+    </mat-card-subtitle>
+  </mat-card>
+</div>
+
+<div *ngIf="artistSongs.length === 0 && selectedArtistId">
+  <p>Acest artist nu are piese.</p>
+</div>

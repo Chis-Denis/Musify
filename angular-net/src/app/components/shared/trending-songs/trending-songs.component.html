@@ -1,0 +1,18 @@
+<section class="trending">
+  <h3>Trending Songs</h3>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div class="carousel" *ngIf="trendingSongs.length; else noTrending">
+    <mat-card *ngFor="let song of trendingSongs" (click)="viewDetails(song.id)">
+      <div class="placeholder-artwork"></div>
+      <mat-card-content>
+        <mat-card-title>{{ song.title }}</mat-card-title>
+        <mat-card-subtitle>{{ getArtistsDisplay(song.artistsStageName) }}</mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <ng-template #noTrending>
+    <p>No trending songs available.</p>
+  </ng-template>
+</section>

@@ -1,0 +1,74 @@
+<div class="admin-songs-container">
+  <div class="form-section">
+    <h3>Add New Song</h3>
+    
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Enter song title" [(ngModel)]="newSong.title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select Artists</mat-label>
+      <mat-select [(ngModel)]="newSong.artistIds" placeholder="Select Artists" multiple>
+        <mat-option *ngFor="let artist of artists" [value]="artist.id">
+          {{ artist.stageName || (artist.firstName + ' ' + artist.lastName) }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Creation Date</mat-label>
+      <input matInput type="date" placeholder="Creation Date" [(ngModel)]="newSong.creationDate">
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button (click)="createSong()">Add Song</button>
+    </div>
+  </div>
+
+  <mat-card class="table-section">
+    <!-- search field -->
+    <mat-form-field appearance="fill" class="title-filter">
+      <mat-label>Search by title</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Type song title..." />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <!-- table -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let song">{{ song.title }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="artists">
+        <th mat-header-cell *matHeaderCellDef>Artists</th>
+        <td mat-cell *matCellDef="let song">{{ getArtistNames(song.artistIds || []) }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="creationDate">
+        <th mat-header-cell *matHeaderCellDef>Created</th>
+        <td mat-cell *matCellDef="let song">{{ song.creationDate | date }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let song">
+          <button mat-icon-button (click)="editSong(song)" title="Edit Song">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteSong(song.id)" title="Delete Song">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="paginator-container">
+      <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card>
+</div>

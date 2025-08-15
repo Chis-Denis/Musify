@@ -1,0 +1,140 @@
+.playlists {
+  margin-top: 20px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+
+  &__error {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  &__loading {
+    text-align: center;
+    padding: 50px;
+  }
+}
+
+.my-playlists-yellow, .playlists-yellow {
+  background: #fff9c4;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.playlists-search-pink {
+  background: #ffe4ec;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.my-playlists-pink {
+  background: #ffe4ec;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.playlists-search-yellow {
+  background: #fff9c4;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.playlists-categories {
+  background: #ffe4ec;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 12px;
+
+  &__title {
+    margin-top: 0;
+    font-size: 1.1rem;
+  }
+  &__buttons {
+    margin-bottom: 10px;
+  }
+  &__btn {
+    margin-right: 4px;
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    min-width: 0;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  &__playlist {
+    width: 220px;
+    position: relative;
+    margin-bottom: 0;
+    padding: 8px 4px;
+  }
+  &__header {
+    padding: 8px 0 0 0;
+  }
+  &__name {
+    font-size: 1rem;
+  }
+  &__subtitle {
+    font-size: 0.85rem;
+  }
+  &__content {
+    padding: 0 0 4px 0;
+  }
+  &__info {
+    margin: 0 0 2px 0;
+    font-size: 0.9rem;
+  }
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+  }
+  &__action-btn {
+    font-size: 1rem;
+  }
+  &__empty {
+    font-size: 0.95rem;
+  }
+}
+
+.playlists-follow {
+  background: #ffe4ec;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 12px;
+
+  &__title {
+    font-size: 1.1rem;
+  }
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  &__user, &__action {
+    flex: 1;
+    min-width: 180px;
+    max-width: 220px;
+  }
+  &__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  &__field {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  &__btn {
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    min-width: 0;
+  }
+}

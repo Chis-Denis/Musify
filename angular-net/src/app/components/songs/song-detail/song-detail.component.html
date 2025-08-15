@@ -1,0 +1,78 @@
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
+<div class="song-detail-page">
+  <div class="song-cover-outer">
+    <div class="song-cover">
+      <div class="icon-container emoji-icon">🎵</div>
+    </div>
+  </div>
+
+  <div class="song-header-box">
+    <div class="song-info-text">
+      <h1>{{ song?.title }}</h1>
+      <p class="song-meta">
+        {{ song?.creationDate | date: 'yyyy' }} • {{ song?.duration?.minutes || 0 }}:{{ (song?.duration?.seconds ?? 0) | number: '2.0' }}
+      </p>
+    </div>
+  </div>
+
+  <div class="actions-card">
+
+    <button mat-fab color="primary" (click)="playSong()">
+      <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="showPlaylistDropdown = !showPlaylistDropdown">
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <div *ngIf="showPlaylistDropdown" class="playlist-dropdown">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Select playlist</mat-label>
+        <mat-select [(ngModel)]="selectedPlaylistId">
+          <mat-option *ngFor="let playlist of playlists" [value]="playlist.id">
+            {{ playlist.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="white-button-text" (click)="addToPlaylist()" [disabled]="!selectedPlaylistId">
+  Add to Playlist
+</button>
+
+    </div>
+
+    <button mat-icon-button><mat-icon>download</mat-icon></button>
+
+    <button mat-icon-button [matMenuTriggerFor]="songMenu">
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </div>
+
+  <mat-menu #songMenu="matMenu">
+    <button mat-menu-item (click)="copySongLink()">
+      <mat-icon>link</mat-icon>
+      <span>Copy link to song</span>
+    </button>
+  </mat-menu>
+
+  <div class="artist-list-section">
+    <h3 class="artist-list-title">Artist</h3>
+    <div class="carousel">
+      <mat-card
+        *ngFor="let artist of artistDetails"
+        class="material-card person"
+        (click)="viewProfile(artist.id!)"
+      >
+        <div class="placeholder-artwork artist"></div>
+        <mat-card-header>
+          <mat-card-title>
+            {{ artist.stageName || (artist.firstName + ' ' + artist.lastName) }}
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+</div>

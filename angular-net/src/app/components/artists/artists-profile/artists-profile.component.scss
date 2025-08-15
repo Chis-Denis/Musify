@@ -1,0 +1,164 @@
+.artist-details {
+  margin: 2rem 1rem;
+}
+
+.artist-header-box {
+  background: linear-gradient(135deg, var(--main-accent) 0%, var(--secondary-accent) 100%);
+  color: white !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 3.5rem 2rem 2rem 2rem;
+  text-align: center;
+  position: relative;
+  min-height: 260px;
+}
+
+.song-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.artist-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.artist-icon {
+  font-size: 40px;
+  color: white;
+}
+
+/* Informații de bază */
+.artist-info p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: #e0e0e0;
+}
+
+.artist-info mat-icon {
+  margin-right: 4px;
+  color: var(--main-accent);
+}
+
+.artist-section {
+  margin-top: 2rem;
+  background: rgba(30,30,30,0.92);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  padding: 2rem 1.5rem;
+}
+
+.artist-section h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--main-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+
+.mini-card {
+      background: linear-gradient(135deg, var(--main-accent) 0%, var(--secondary-accent) 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  width: 180px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mini-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.32);
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  color: var(--main-accent);
+}
+
+mat-icon {
+  vertical-align: middle;
+  color: var(--main-accent);
+}
+
+mat-card {
+  background-color: white !important;
+}
+
+mat-card-content p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #181818 0%, #232526 100%);
+  color: #f3f3f3;
+}
+
+mat-card-title {
+  font-size: 1rem;
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.song-cover {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border: 4px solid #fff;
+  margin-top: -55px;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(6px);
+  position: relative;
+  z-index: 2;
+}
+
+.emoji-icon {
+  font-size: 60px;
+  color: white;
+  background: none;
+}

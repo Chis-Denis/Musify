@@ -1,0 +1,1113 @@
+:root {
+  --main-bg: #0F0F1C;
+  --main-accent: #FF4C60;
+  --secondary-accent: #6C5CE7;
+  --primary-text: #FFFFFF;
+  --secondary-text: #A0A0A0;
+  --card-bg: #1A1A2E;
+  --section-bg: #1a1a2e80;
+}
+
+html, body {
+  height: 100%;
+  background: var(--main-bg);
+  color: var(--primary-text);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-app-background {
+  background: var(--main-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+.mat-toolbar {
+  background: var(--main-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+.mat-sidenav, .mat-sidenav-container {
+  background: var(--main-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+.mat-card {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border: 1px solid var(--secondary-accent) !important;
+}
+
+.mat-button, .mat-raised-button, .mat-flat-button, .mat-stroked-button {
+  background: var(--main-accent) !important;
+  color: var(--primary-text) !important;
+  border-radius: 8px !important;
+}
+
+.mat-icon-button .mat-icon {
+  color: var(--secondary-accent) !important;
+}
+
+.mat-form-field-label {
+  color: var(--secondary-text) !important;
+}
+
+.mat-input-element {
+  color: var(--primary-text) !important;
+  background: transparent !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--secondary-accent) !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background: rgba(108, 92, 231, 0.1) !important;
+  color: var(--primary-text) !important;
+}
+
+.update-profile-container .mat-form-field-appearance-fill .mdc-text-field--filled {
+  background: var(--card-bg) !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--secondary-accent) !important;
+}
+
+.update-profile-container .mat-mdc-input-element {
+  color: var(--primary-text) !important;
+}
+
+.update-profile-container .mdc-floating-label {
+  color: var(--secondary-accent) !important;
+}
+
+.mat-menu-panel {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+.mat-menu-item {
+  color: var(--primary-text) !important;
+}
+
+.mat-divider {
+  border-top-color: var(--secondary-accent) !important;
+}
+
+.mat-progress-spinner circle {
+  stroke: var(--main-accent) !important;
+}
+
+.mat-chip.mat-standard-chip {
+  background: var(--secondary-accent) !important;
+  color: var(--primary-text) !important;
+}
+
+.mat-autocomplete-panel {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+.mat-option {
+  color: var(--primary-text) !important;
+
+  &:hover {
+    background: rgba(108, 92, 231, 0.1) !important;
+  }
+}
+
+a, .auth-link {
+  color: var(--main-accent) !important;
+  text-decoration: none;
+
+  &:hover {
+    color: rgba(255, 76, 96, 0.8) !important;
+  }
+}
+
+.secondary-text {
+  color: var(--secondary-text) !important;
+}
+
+.success-message {
+  color: var(--secondary-accent) !important;
+  background: rgba(108, 92, 231, 0.1);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--secondary-accent);
+}
+
+.error-message {
+  color: var(--main-accent) !important;
+  background: rgba(255, 76, 96, 0.1);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--main-accent);
+}
+
+.toast-success {
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
+}
+
+.toast-error {
+  background-color: #f44336;
+  color: white;
+  font-weight: 500;
+}
+
+.toast-info {
+  background-color: #2196f3;
+  color: white;
+  font-weight: 500;
+}
+
+.toast-warn {
+  background-color: #ff9800;
+  color: black;
+  font-weight: 500;
+}
+
+// Override for user profile menu specifically
+.mat-mdc-menu-panel {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.mat-mdc-menu-content {
+  padding: 16px !important;
+  max-width: 240px !important;
+}
+
+.mat-mdc-menu-content p {
+  margin: 4px 0 !important;
+  font-size: 0.95rem !important;
+  color: var(--primary-text) !important;
+}
+
+.mat-mdc-menu-content mat-divider {
+  margin: 8px 0 !important;
+  border-color: var(--secondary-accent) !important;
+}
+
+.mat-mdc-menu-item {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 0.95rem !important;
+  color: var(--primary-text) !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  margin: 2px 4px !important;
+}
+
+.mat-mdc-menu-item mat-icon {
+  margin-right: 8px !important;
+  color: var(--secondary-accent) !important;
+}
+
+.mat-mdc-menu-item .mat-mdc-menu-item-text {
+  color: var(--primary-text) !important;
+}
+
+.mat-mdc-menu-item:hover {
+  background: rgba(108, 92, 231, 0.1) !important;
+}
+
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-button,
+.mdc-button {
+  overflow: visible !important;
+}
+
+.mat-mdc-button-persistent-ripple,
+.mat-mdc-button-touch-target,
+.mat-ripple-element,
+.mat-focus-indicator,
+.mdc-button__ripple {
+  display: none !important;
+}
+
+button, mat-card, .mat-mdc-card, .mat-mdc-card-header, .mat-mdc-card-content {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.confirmation-dialog {
+  z-index: 9999 !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+  z-index: 9999 !important;
+}
+
+.profile-menu,
+.mat-mdc-menu-panel {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.profile-menu .mat-mdc-menu-item,
+.mat-mdc-menu-panel .mat-mdc-menu-item {
+  color: var(--primary-text) !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  font-size: 0.95rem !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  margin: 2px 0px !important;
+}
+
+.profile-menu .mat-mdc-menu-item mat-icon,
+.mat-mdc-menu-panel .mat-mdc-menu-item mat-icon {
+  margin-right: 4px !important;
+  color: var(--secondary-accent) !important;
+}
+
+.profile-menu .mat-mdc-menu-item:hover,
+.mat-mdc-menu-panel .mat-mdc-menu-item:hover {
+  background: rgba(108, 92, 231, 0.1) !important;
+}
+
+.change-password-container .mat-mdc-form-field-flex,
+.auth-container .mat-mdc-form-field-flex,
+mat-card .mat-mdc-form-field-flex,
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background: var(--card-bg) !important; 
+  border-radius: 8px !important;
+}
+
+
+.change-password-container .mat-mdc-text-field-wrapper,
+.auth-container .mat-mdc-text-field-wrapper,
+mat-card .mat-mdc-text-field-wrapper,
+.mat-form-field-appearance-fill .mdc-text-field--filled {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--secondary-accent) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease;
+}
+
+.change-password-container .mat-mdc-text-field-wrapper:hover,
+.auth-container .mat-mdc-text-field-wrapper:hover,
+mat-card .mat-mdc-text-field-wrapper:hover,
+.mat-form-field-appearance-fill .mdc-text-field--filled:hover {
+  border-color: var(--main-accent) !important;
+}
+
+.change-password-container .mat-mdc-text-field-wrapper.mdc-text-field--focused,
+.auth-container .mat-mdc-text-field-wrapper.mdc-text-field--focused,
+mat-card .mat-mdc-text-field-wrapper.mdc-text-field--focused,
+.mat-form-field-appearance-fill .mdc-text-field--focused {
+  border-color: var(--main-accent) !important;
+  box-shadow: 0 0 0 2px rgba(255, 76, 96, 0.2) !important;
+}
+
+.change-password-container .mat-mdc-input-element,
+.auth-container .mat-mdc-input-element,
+mat-card .mat-mdc-input-element,
+.mat-input-element {
+  color: var(--primary-text) !important;
+  caret-color: var(--primary-text) !important;
+  background: transparent !important;
+}
+
+.change-password-container .mdc-floating-label,
+.auth-container .mdc-floating-label,
+mat-card .mdc-floating-label,
+.mat-form-field-label {
+  color: var(--secondary-accent) !important;
+}
+
+.change-password-container .mdc-floating-label--float-above,
+.auth-container .mdc-floating-label--float-above,
+mat-card .mdc-floating-label--float-above {
+  color: var(--main-accent) !important;
+}
+
+.change-password-container .mat-mdc-form-field-focus-overlay,
+.auth-container .mat-mdc-form-field-focus-overlay,
+mat-card .mat-mdc-form-field-focus-overlay,
+.mat-mdc-form-field-focus-overlay {
+  background: transparent !important;
+  display: none !important;
+}
+
+.change-password-container .mdc-line-ripple,
+.auth-container .mdc-line-ripple,
+mat-card .mdc-line-ripple,
+.mdc-line-ripple {
+  display: none !important;
+}
+
+.change-password-container .mat-mdc-text-field-wrapper.mdc-text-field--invalid,
+.auth-container .mat-mdc-text-field-wrapper.mdc-text-field--invalid,
+mat-card .mat-mdc-text-field-wrapper.mdc-text-field--invalid {
+  border-color: var(--main-accent) !important;
+}
+
+// ==========================================================================
+// DIALOG STYLING - CORRECTED ALIGNMENT
+// ==========================================================================
+
+.mat-mdc-dialog-container {
+  background: transparent !important;  // ← Make container transparent
+  color: var(--primary-text) !important;
+  border: none !important;  // ← Remove border from container
+  border-radius: 16px !important;
+  box-shadow: none !important;  // ← Remove shadow from container
+  padding: 0 !important;  // ← Remove padding
+  overflow: hidden !important;
+}
+
+// Apply styling to the actual dialog surface
+.mat-mdc-dialog-surface {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--secondary-accent) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.7),
+    0 4px 16px rgba(255, 76, 96, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  overflow: hidden !important;
+}
+
+.mat-mdc-dialog-title {
+  color: var(--main-accent) !important;
+  margin: 0 !important;
+  padding: 24px !important;
+}
+
+.mat-mdc-dialog-content {
+  color: var(--primary-text) !important;
+  background: var(--card-bg) !important;
+  margin: 0 !important;
+}
+
+.mat-mdc-dialog-actions {
+  background: var(--card-bg) !important;
+  border-top: 1px solid var(--secondary-accent) !important;
+  margin: 0 !important;
+}
+
+.mat-mdc-table {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+}
+
+.mat-mdc-header-cell {
+  background: var(--secondary-accent) !important;
+  color: var(--primary-text) !important;
+  font-weight: 600;
+}
+
+.mat-mdc-cell {
+  color: var(--primary-text) !important;
+  border-bottom-color: var(--secondary-accent) !important;
+}
+
+.mat-mdc-row:hover {
+  background: rgba(108, 92, 231, 0.1) !important;
+}
+
+// User Edit Dialog specific fixes
+.user-edit-dialog .mat-mdc-dialog-container {
+  overflow: hidden !important;
+  max-width: 450px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.user-edit-dialog .mat-mdc-dialog-content {
+  overflow-x: hidden !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.user-edit-dialog .mat-mdc-form-field {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.user-edit-dialog .mat-mdc-form-field-flex,
+.user-edit-dialog .mat-mdc-text-field-wrapper {
+  background: var(--card-bg) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+// ==========================================================================
+// CRITICAL: Global Select Panel Fix for ALL Dialogs
+// ==========================================================================
+
+// This ensures ALL mat-select dropdowns work everywhere, especially in dialogs
+.cdk-overlay-container {
+  z-index: 10000 !important;
+  
+  .mat-mdc-select-panel {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8) !important;
+    z-index: 10001 !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    min-width: 100% !important;
+    
+    .mat-mdc-option {
+      background: var(--card-bg) !important;
+      color: var(--primary-text) !important;
+      padding: 16px !important;
+      min-height: 48px !important;
+      cursor: pointer !important;
+      transition: background-color 0.2s ease !important;
+      
+      &:hover {
+        background: rgba(108, 92, 231, 0.15) !important;
+        color: var(--primary-text) !important;
+      }
+
+      &.mdc-list-item--selected {
+        background: rgba(255, 76, 96, 0.15) !important;
+        color: var(--main-accent) !important;
+        font-weight: 600 !important;
+      }
+
+      &.mat-mdc-option-active {
+        background: rgba(108, 92, 231, 0.1) !important;
+      }
+      
+      .mdc-list-item__primary-text {
+        color: inherit !important;
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+
+// Specific fix for dialog select panels that might have different overlay classes
+.cdk-global-overlay-wrapper {
+  z-index: 10000 !important;
+  
+  .mat-mdc-select-panel {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8) !important;
+    z-index: 10001 !important;
+    
+    .mat-mdc-option {
+      background: var(--card-bg) !important;
+      color: var(--primary-text) !important;
+      padding: 16px !important;
+      
+      &:hover {
+        background: rgba(108, 92, 231, 0.15) !important;
+      }
+
+      &.mdc-list-item--selected {
+        background: rgba(255, 76, 96, 0.15) !important;
+        color: var(--main-accent) !important;
+      }
+    }
+  }
+}
+
+// Ensure dialog z-index is lower than select panels
+.mat-mdc-dialog-container {
+  z-index: 1000 !important;
+}
+
+// Alternative selector for different Angular Material versions
+.mat-select-panel {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--secondary-accent) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8) !important;
+  
+  .mat-option {
+    background: var(--card-bg) !important;
+    color: var(--primary-text) !important;
+    
+    &:hover {
+      background: rgba(108, 92, 231, 0.15) !important;
+    }
+
+    &.mat-selected {
+      background: rgba(255, 76, 96, 0.15) !important;
+      color: var(--main-accent) !important;
+    }
+  }
+}
+
+// ==========================================================================
+// CRITICAL FIX: Force select dropdowns above dialog overlays
+// ==========================================================================
+
+// Target the specific overlay container that holds select panels
+.cdk-overlay-connected-position-bounding-box {
+  z-index: 100000 !important;
+  position: fixed !important;
+  
+  .mat-mdc-select-panel {
+    background: var(--card-bg) !important;
+    border: 2px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.9),
+      0 4px 16px rgba(108, 92, 231, 0.5) !important;
+    z-index: 100001 !important;
+    
+    .mat-mdc-option {
+      background: var(--card-bg) !important;
+      color: var(--primary-text) !important;
+      padding: 16px !important;
+      min-height: 48px !important;
+      cursor: pointer !important;
+      
+      &:hover {
+        background: rgba(108, 92, 231, 0.2) !important;
+        color: var(--primary-text) !important;
+      }
+
+      &.mdc-list-item--selected {
+        background: rgba(255, 76, 96, 0.2) !important;
+        color: var(--main-accent) !important;
+        font-weight: 600 !important;
+      }
+
+      &.mat-mdc-option-active {
+        background: rgba(108, 92, 231, 0.15) !important;
+      }
+      
+      .mdc-list-item__primary-text {
+        color: inherit !important;
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+
+// Also target the direct overlay pane
+#cdk-overlay-7 {
+  z-index: 100000 !important;
+}
+
+// Catch any overlay pane that contains select panels
+.cdk-overlay-pane:has(.mat-mdc-select-panel) {
+  z-index: 100000 !important;
+}
+
+// Alternative approach - target by panel ID pattern
+[id^="cdk-overlay-"]:has(.mat-mdc-select-panel) {
+  z-index: 100000 !important;
+}
+
+// Ensure dialog overlays have lower z-index
+.cdk-overlay-container:has(.mat-mdc-dialog-container) {
+  z-index: 1000 !important;
+}
+
+// Global override for all select panels everywhere
+.mat-mdc-select-panel {
+  z-index: 100001 !important;
+  background: var(--card-bg) !important;
+  border: 2px solid var(--secondary-accent) !important;
+  border-radius: 8px !important;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.9),
+    0 4px 16px rgba(108, 92, 231, 0.5) !important;
+}
+
+// ALBUM EDIT DIALOG INPUT STYLES 
+.album-edit-dialog .mat-mdc-input-element {
+  color: var(--primary-text) !important;
+  caret-color: var(--primary-text) !important;
+  background: transparent !important;
+
+  &::placeholder {
+    color: var(--secondary-text) !important;
+    opacity: 1 !important;
+  }
+
+  &::-webkit-input-placeholder {
+    color: var(--secondary-text) !important;
+  }
+
+  &::-moz-placeholder {
+    color: var(--secondary-text) !important;
+    opacity: 1 !important;
+  }
+
+  &:-ms-input-placeholder {
+    color: var(--secondary-text) !important;
+  }
+}
+
+// Artist Edit Dialog specific styling
+.artist-edit-dialog .mat-mdc-dialog-container {
+  overflow: hidden !important;
+  max-width: 600px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.artist-edit-dialog .mat-mdc-dialog-content {
+  overflow-x: hidden !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.artist-edit-dialog .mat-mdc-form-field {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.artist-edit-dialog .mat-mdc-form-field-flex,
+.artist-edit-dialog .mat-mdc-text-field-wrapper {
+  background: var(--card-bg) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+// Artist edit dialog buttons
+.artist-edit-dialog .mat-mdc-dialog-actions {
+  background: var(--card-bg) !important;
+  border-top: 1px solid var(--secondary-accent) !important;
+  padding: 16px 24px !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  
+  button,
+  button[mat-button],
+  .mat-mdc-button,
+  .mdc-button {
+    background: transparent !important;
+    color: var(--secondary-text) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s ease !important;
+    min-width: 80px !important;
+    cursor: pointer !important;
+
+    // Style the button content
+    .mdc-button__label,
+    .mat-mdc-button-touch-target,
+    span {
+      color: inherit !important;
+      font-weight: inherit !important;
+    }
+
+    &:hover {
+      background: rgba(108, 92, 231, 0.1) !important;
+      border-color: var(--main-accent) !important;
+      color: var(--main-accent) !important;
+    }
+
+    // Target the Save button (last button in the container)
+    &:last-child {
+      background: var(--main-accent) !important;
+      color: white !important;
+      border-color: var(--main-accent) !important;
+
+      .mdc-button__label,
+      .mat-mdc-button-touch-target,
+      span {
+        color: white !important;
+      }
+
+      &:hover {
+        background: rgba(255, 76, 96, 0.9) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(255, 76, 96, 0.4) !important;
+      }
+    }
+  }
+}
+
+// Additional specific targeting for Material Design buttons
+.album-edit-dialog .mat-mdc-dialog-actions .mat-mdc-button {
+  background: transparent !important;
+  color: var(--secondary-text) !important;
+  border: 1px solid var(--secondary-accent) !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+
+  .mdc-button__label {
+    color: var(--secondary-text) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+  }
+
+  &:hover {
+    background: rgba(108, 92, 231, 0.1) !important;
+    border-color: var(--main-accent) !important;
+    color: var(--main-accent) !important;
+
+    .mdc-button__label {
+      color: var(--main-accent) !important;
+    }
+  }
+
+  &:last-child {
+    background: var(--main-accent) !important;
+    color: white !important;
+    border-color: var(--main-accent) !important;
+
+    .mdc-button__label {
+      color: white !important;
+    }
+
+    &:hover {
+      background: rgba(255, 76, 96, 0.9) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(255, 76, 96, 0.4) !important;
+    }
+  }
+}
+
+// Even more specific targeting to override Material defaults
+.album-edit-dialog .mat-mdc-dialog-actions .mat-mdc-button.mat-unthemed {
+  background: transparent !important;
+  color: var(--secondary-text) !important;
+  border: 1px solid var(--secondary-accent) !important;
+
+  &:last-child {
+    background: var(--main-accent) !important;
+    color: white !important;
+    border-color: var(--main-accent) !important;
+  }
+}
+
+// Force styling on the button wrapper elements
+.album-edit-dialog .mat-mdc-dialog-actions .mdc-button {
+  background: transparent !important;
+  color: var(--secondary-text) !important;
+  border: 1px solid var(--secondary-accent) !important;
+  border-radius: 8px !important;
+
+  &:last-child {
+    background: var(--main-accent) !important;
+    color: white !important;
+    border-color: var(--main-accent) !important;
+  }
+}
+
+// ==========================================================================
+// ALBUM EDIT DIALOG STYLES - FIXED DOUBLE BORDERS
+// ==========================================================================
+
+.album-edit-dialog .mat-mdc-dialog-content {
+  overflow-x: hidden !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.album-edit-dialog .mat-mdc-form-field {
+  width: 100% !important;
+  margin-bottom: 16px !important;
+  box-sizing: border-box !important;
+}
+
+// IMPORTANT: Only apply border to ONE container, not both
+.album-edit-dialog .mat-mdc-text-field-wrapper {
+  background: var(--main-bg) !important;
+  border: 1px solid var(--secondary-accent) !important;
+  border-radius: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.3s ease !important;
+}
+
+// Remove border from form-field-flex to prevent double borders
+.album-edit-dialog .mat-mdc-form-field-flex {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+// Focus state - only on the wrapper
+.album-edit-dialog .mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  border-color: var(--main-accent) !important;
+  box-shadow: 0 0 0 2px rgba(255, 76, 96, 0.2) !important;
+}
+
+// Ensure no focus styling on flex container
+.album-edit-dialog .mat-mdc-form-field.mat-focused .mat-mdc-form-field-flex {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.album-edit-dialog .mat-mdc-input-element {
+  color: var(--primary-text) !important;
+  caret-color: var(--primary-text) !important;
+  background: transparent !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.album-edit-dialog .mdc-floating-label {
+  color: var(--secondary-accent) !important;
+}
+
+.album-edit-dialog .mat-mdc-form-field.mat-focused .mdc-floating-label {
+  color: var(--main-accent) !important;
+}
+
+// Hide line ripples to prevent conflicts
+.album-edit-dialog .mdc-line-ripple {
+  display: none !important;
+}
+
+.album-edit-dialog .mdc-line-ripple::before,
+.album-edit-dialog .mdc-line-ripple::after {
+  display: none !important;
+}
+
+// Hide focus overlay
+.album-edit-dialog .mat-mdc-form-field-focus-overlay {
+  display: none !important;
+}
+
+// Album edit dialog actions
+.album-edit-dialog .mat-mdc-dialog-actions {
+  background: var(--card-bg) !important;
+  border-top: 1px solid var(--secondary-accent) !important;
+  padding: 16px 24px !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  
+  // Target ALL button variations with multiple selectors
+  button,
+  button[mat-button],
+  .mat-mdc-button,
+  .mdc-button {
+    background: transparent !important;
+    color: var(--secondary-text) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s ease !important;
+    min-width: 80px !important;
+    cursor: pointer !important;
+
+    // Style the button content
+    .mdc-button__label,
+    .mat-mdc-button-touch-target,
+    span {
+      color: inherit !important;
+      font-weight: inherit !important;
+    }
+
+    &:hover {
+      background: rgba(108, 92, 231, 0.1) !important;
+      border-color: var(--main-accent) !important;
+      color: var(--main-accent) !important;
+    }
+
+    // Target the Save button (last button in the container)
+    &:last-child {
+      background: var(--main-accent) !important;
+      color: white !important;
+      border-color: var(--main-accent) !important;
+
+      .mdc-button__label,
+      .mat-mdc-button-touch-target,
+      span {
+        color: white !important;
+      }
+
+      &:hover {
+        background: rgba(255, 76, 96, 0.9) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(255, 76, 96, 0.4) !important;
+      }
+    }
+  }
+}
+
+// Add this section at the end of the file, after the existing album-edit-dialog styles
+
+// ==========================================================================
+// ALBUM EDIT DIALOG BUTTON STYLING - SPECIFIC FIX
+// ==========================================================================
+
+// Target the specific button structure from your inspect element
+.album-edit-dialog .mat-mdc-dialog-actions button[mat-raised-button] {
+  background: var(--main-accent) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--main-accent) !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(255, 76, 96, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+
+  // Override Material Design classes
+  &.mdc-button--raised {
+    background: var(--main-accent) !important;
+    color: var(--primary-text) !important;
+    box-shadow: 0 4px 12px rgba(255, 76, 96, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  &.mat-mdc-raised-button {
+    background: var(--main-accent) !important;
+    color: var(--primary-text) !important;
+  }
+
+  &.mat-unthemed {
+    background: var(--main-accent) !important;
+    color: var(--primary-text) !important;
+  }
+
+  // Cancel button (first button) - different styling
+  &:first-child {
+    background: transparent !important;
+    color: var(--secondary-text) !important;
+    border: 1px solid var(--secondary-accent) !important;
+    box-shadow: none !important;
+
+    &:hover {
+      background: rgba(108, 92, 231, 0.1) !important;
+      border-color: var(--main-accent) !important;
+      color: var(--main-accent) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    &.mdc-button--raised {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    .mdc-button__label {
+      color: var(--secondary-text) !important;
+    }
+
+    &:hover .mdc-button__label {
+      color: var(--main-accent) !important;
+    }
+  }
+
+  // Save button (last button) - red styling
+  &:last-child {
+    background: var(--main-accent) !important;
+    color: var(--primary-text) !important;
+    border-color: var(--main-accent) !important;
+    box-shadow: 0 4px 12px rgba(255, 76, 96, 0.3) !important;
+
+    &:hover {
+      background: rgba(255, 76, 96, 0.9) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 16px rgba(255, 76, 96, 0.4) !important;
+    }
+
+    &:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 2px 8px rgba(255, 76, 96, 0.3) !important;
+    }
+
+    &.mdc-button--raised {
+      background: var(--main-accent) !important;
+      box-shadow: 0 4px 12px rgba(255, 76, 96, 0.3) !important;
+    }
+
+    .mdc-button__label {
+      color: var(--primary-text) !important;
+    }
+  }
+
+  // Override all Material ripple and focus effects
+  .mat-mdc-button-persistent-ripple,
+  .mdc-button__ripple,
+  .mat-focus-indicator,
+  .mat-mdc-button-touch-target,
+  .mat-ripple {
+    background: transparent !important;
+    opacity: 0 !important;
+    display: none !important;
+  }
+
+  // Force label color
+  .mdc-button__label {
+    color: inherit !important;
+  }
+
+  &:hover {
+    background: rgba(255, 76, 96, 0.9) !important;
+    border-color: rgba(255, 76, 96, 0.9) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(255, 76, 96, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(255, 76, 96, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  &:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+
+    &:hover {
+      background: var(--main-accent) !important;
+      transform: none !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+}
+
+// Additional fallback styling targeting the exact classes from inspect element
+.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-unthemed.mat-mdc-button-base {
+  background: var(--main-accent) !important;
+  color: var(--primary-text) !important;
+  border: 2px solid var(--main-accent) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(255, 76, 96, 0.3) !important;
+
+  &:hover {
+    background: rgba(255, 76, 96, 0.9) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(255, 76, 96, 0.4) !important;
+  }
+
+  .mdc-button__label {
+    color: var(--primary-text) !important;
+  }
+}
+
+// Target the dialog container specifically
+.mat-mdc-dialog-container .album-edit-dialog .mat-mdc-dialog-actions {
+  background: var(--card-bg) !important;
+  border-top: 1px solid var(--secondary-accent) !important;
+  padding: 16px 24px 24px 24px !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+
+  button {
+    margin: 0 !important;
+  }
+}

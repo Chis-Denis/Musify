@@ -1,0 +1,17 @@
+<div class="add-album-dialog-container">
+  <h2 class="add-album-title">Add Album to Playlist</h2>
+  <mat-form-field appearance="outline" class="add-album-search-field">
+    <mat-label>Search Albums</mat-label>
+    <input matInput [(ngModel)]="search" placeholder="Type to filter albums...">
+  </mat-form-field>
+  <mat-radio-group [(ngModel)]="selectedAlbum" class="add-album-list">
+    <mat-radio-button *ngFor="let album of filteredAlbums()" [value]="album" class="add-album-radio">
+      <span class="add-album-title">{{ album.title }}</span>
+      <span class="add-album-artist">Artist #{{ album.artistId }}</span>
+    </mat-radio-button>
+  </mat-radio-group>
+  <div class="add-album-actions">
+    <button mat-stroked-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="accent" [disabled]="!selectedAlbum" (click)="onAdd()">Add</button>
+  </div>
+</div> 

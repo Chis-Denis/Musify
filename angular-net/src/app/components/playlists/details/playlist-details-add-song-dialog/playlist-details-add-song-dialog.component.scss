@@ -1,0 +1,115 @@
+.add-song-dialog-container {
+  background: #181828;
+  color: var(--main-accent);
+  border-radius: 18px;
+  padding: 24px 24px 16px 24px;
+  min-width: 340px;
+  max-width: 400px;
+}
+.add-song-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--main-accent);
+}
+.add-song-search-field {
+  width: 100%;
+  margin-bottom: 12px;
+}
+:host ::ng-deep .add-song-search-field .mat-form-field-appearance-outline .mat-form-field-outline,
+:host ::ng-deep .add-song-search-field .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  border-color: var(--secondary-accent) !important;
+}
+:host ::ng-deep .add-song-search-field .mat-form-field-label {
+  color: var(--secondary-accent) !important;
+}
+:host ::ng-deep .add-song-search-field .mat-input-element {
+  color: var(--secondary-accent) !important;
+  caret-color: var(--secondary-accent) !important;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  padding: 0 12px;
+  background: transparent;
+}
+:host ::ng-deep .add-song-search-field .mat-form-field-flex {
+  height: 40px;
+  align-items: center;
+}
+.add-song-search-field {
+  margin-left: 8px;
+}
+.add-song-search-field .mat-input-element::placeholder {
+  color: var(--secondary-text) !important;
+  opacity: 0.7;
+}
+.add-song-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 260px;
+  overflow-y: auto;
+  margin-bottom: 18px;
+  background: #23223a;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+.add-song-radio {
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  color: var(--main-accent);
+  width: 100%;
+  transition: background 0.2s;
+}
+.add-song-radio.mat-radio-checked {
+  background: rgba(108, 92, 231, 0.15);
+}
+.add-song-radio:hover {
+  background: rgba(108, 92, 231, 0.10);
+}
+.add-song-title {
+  font-weight: 600;
+  margin-right: 8px;
+  color: var(--main-accent);
+}
+.add-song-artist {
+  color: var(--secondary-accent);
+  font-size: 0.95em;
+}
+.add-song-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+:host ::ng-deep .mat-mdc-input-element,
+:host ::ng-deep input[matInput],
+:host ::ng-deep .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-option,
+:host ::ng-deep .mat-mdc-option .mdc-list-item__primary-text {
+  color: #fff !important;
+  caret-color: #fff !important;
+  opacity: 1 !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+}
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-value,
+:host ::ng-deep .mat-mdc-select-disabled .mat-mdc-select-placeholder,
+:host ::ng-deep .mat-mdc-select-value-text,
+:host ::ng-deep .mat-mdc-select-placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #fff !important;
+}
+:host ::ng-deep .mdc-floating-label {
+  color: var(--secondary-accent) !important;
+}
+:host ::ng-deep .mat-mdc-form-field-infix::placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+} 

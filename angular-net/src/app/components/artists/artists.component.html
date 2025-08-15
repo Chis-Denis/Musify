@@ -1,0 +1,34 @@
+<section class="artists">
+<h3>Solo Artists</h3>
+<div class="carousel">
+  <mat-card *ngFor="let person of persons.paginatedItems" class="material-card person" (click)="viewProfile(person.id!)">
+    <div class="placeholder-artwork artist"></div>
+    <mat-card-content>
+      <mat-card-title>{{ person.stageName || (person.firstName + ' ' + person.lastName) }}</mat-card-title>
+      <mat-card-subtitle>{{ (person.firstName + ' ' + person.lastName) }}</mat-card-subtitle>
+    </mat-card-content>
+  </mat-card>
+</div>
+  <div class="pagination">
+        <button mat-button (click)="persons.prevPage()">←</button>
+          <span>{{ persons.currentPage }}/{{ persons.totalPages }}</span>
+        <button mat-button (click)="persons.nextPage()">→</button>
+    </div>
+
+
+
+<h3>Bands</h3>
+<div class="carousel">
+  <mat-card *ngFor="let band of bands.paginatedItems" class="material-card band" (click)="viewProfile(band.id!)">
+    <div class="placeholder-artwork band"></div>
+    <mat-card-content>
+      <mat-card-title>{{ band.bandName || band.stageName }}</mat-card-title>
+    </mat-card-content>
+  </mat-card>
+</div>
+  <div class="pagination">
+        <button mat-button (click)="bands.prevPage()">←</button>
+          <span>{{ bands.currentPage }}/{{ bands.totalPages }}</span>
+        <button mat-button (click)="bands.nextPage()">→</button>
+    </div>
+</section>

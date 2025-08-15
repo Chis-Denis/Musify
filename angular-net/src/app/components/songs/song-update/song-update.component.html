@@ -1,0 +1,50 @@
+<h2>Update Song</h2>
+
+<!-- Select song -->
+<mat-form-field appearance="fill" class="full-width">
+  <mat-label>Select a song</mat-label>
+  <mat-select [(ngModel)]="selectedSongId" name="selectedSongId" (selectionChange)="onSongSelect($event.value)">
+    <mat-option *ngFor="let s of allSongs" [value]="s.id">{{ s.title }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<form (ngSubmit)="onSubmit()" #updateForm="ngForm">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Title</mat-label>
+    <input matInput name="title" [(ngModel)]="song.title" required />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Select artists</mat-label>
+    <mat-chip-grid #chipGrid aria-label="Artist selection">
+      <mat-chip-row *ngFor="let id of song.artistIds" (removed)="removeArtist(id)">
+        {{ getDisplayName(getArtistById(id)) }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
+
+    <input
+      placeholder="Search artist..."
+      [(ngModel)]="currentArtist"
+      (ngModelChange)="filterArtists()"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipGrid"
+      name="artistInput"
+    />
+
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addArtist($event.option.value)">
+      <mat-option *ngFor="let artist of filteredArtists" [value]="artist">
+        {{ getDisplayName(artist) }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <button mat-raised-button color="accent" type="submit" [disabled]="!updateForm.form.valid">
+    Save Changes
+  </button>
+</form>
+
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error-message" [innerHTML]="errorMessage"></div>

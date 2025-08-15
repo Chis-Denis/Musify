@@ -1,0 +1,93 @@
+:host {
+  display: block;
+}
+
+h2[mat-dialog-title] {
+  color: var(--primary-text) !important;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 !important;
+  padding: 8px !important;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: var(--secondary-accent) !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+mat-dialog-content {
+  background: var(--card-bg) !important;
+  color: var(--primary-text) !important;
+  padding: 32px !important;
+  margin: 0 !important;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 1 !important;
+  margin-bottom: 0 !important; 
+}
+
+mat-dialog-actions {
+  background: var(--card-bg) !important;
+  padding: 16px 24px 24px 24px !important;
+  justify-content: flex-end !important;
+  gap: 12px;
+  border-top: 1px solid var(--secondary-accent);
+  overflow: hidden;
+  margin: 0 !important;
+  border-radius: 0 0 16px 16px !important;
+
+  button {
+    padding: 8px 16px;
+    border-radius: 8px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+
+    &[mat-button] {
+      background: transparent !important;
+      color: var(--secondary-text) !important;
+      border: 1px solid var(--secondary-accent) !important;
+
+      &:hover {
+        background: rgba(108, 92, 231, 0.1) !important;
+        color: var(--primary-text) !important;
+        border-color: var(--main-accent) !important;
+      }
+    }
+
+    &[mat-raised-button] {
+      background: var(--main-accent) !important;
+      color: var(--primary-text) !important;
+      box-shadow: 0 4px 12px rgba(255, 76, 96, 0.3);
+
+      &:hover {
+        background: rgba(255, 76, 96, 0.8) !important;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(255, 76, 96, 0.4);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: var(--secondary-text) !important;
+        transform: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &[color="warn"] {
+      background: var(--main-accent) !important;
+      color: var(--primary-text) !important;
+      border: 1px solid var(--main-accent) !important;
+      box-shadow: 0 4px 12px rgba(255, 76, 96, 0.3);
+
+      &:hover {
+        background: rgba(255, 76, 96, 0.8) !important;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(255, 76, 96, 0.4);
+        border-color: rgba(255, 76, 96, 0.8) !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<div *ngIf="isLoading" class="loading">
+  <mat-spinner diameter="40"></mat-spinner>
+  <p>Loading...</p>
+</div>
+
+<ng-container *ngIf="selectedArtist && !isLoading">
+  <mat-card class="artist-header-box">
+    <div class="song-header">
+      <mat-card class="song-cover placeholder-cover" appearance="outlined">
+        <div class="icon-container emoji-icon">
+          {{ selectedArtist.members?.length ? '👥' : '👤' }}
+        </div>
+      </mat-card>
+      <div class="song-info">
+        <p class="mat-caption">Artist</p>
+        <h1 class="mat-display-1 artist-name">
+          {{ selectedArtist.stageName || selectedArtist.bandName || (selectedArtist.firstName + ' ' + selectedArtist.lastName) }}
+        </h1>
+        <p class="mat-subheading-2" *ngIf="selectedArtist.location">
+          <mat-icon>place</mat-icon> {{ selectedArtist.location }}
+        </p>
+        <p class="mat-subheading-2" *ngIf="selectedArtist.activeStart">
+          <mat-icon>schedule</mat-icon> {{ selectedArtist.activeStart }} - {{ selectedArtist.activeEnd || 'Prezent' }}
+        </p>
+        <p class="mat-subheading-2" *ngIf="selectedArtist.birthday">
+          <mat-icon>cake</mat-icon> {{ selectedArtist.birthday }}
+        </p>
+      </div>
+    </div>
+  </mat-card>
+
+  <div class="artist-section" *ngIf="selectedArtist.members?.length">
+    <h3><mat-icon>group</mat-icon>Members</h3>
+    <div class="card-grid">
+      <mat-card class="mini-card" *ngFor="let member of selectedArtist.members" (click)="viewArtist(member.id!)">
+        {{ member.stageName || (member.firstName + ' ' + member.lastName) }}
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="artist-section" *ngIf="selectedArtist.bands?.length">
+    <h3><mat-icon>group</mat-icon>Bands</h3>
+    <div class="card-grid">
+      <mat-card class="mini-card" *ngFor="let band of selectedArtist.bands" (click)="viewArtist(band.id!)">
+        {{ band.bandName || band.stageName }}
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="artist-section" *ngIf="selectedArtist.albums?.length">
+    <h3><mat-icon>album</mat-icon>Albums</h3>
+    <div class="card-grid">
+      <mat-card class="mini-card" *ngFor="let album of selectedArtist.albums" (click)="viewAlbum(album.id!)">
+        {{ album.title }}
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="artist-section" *ngIf="selectedArtist.songs?.length">
+    <h3><mat-icon>music_note</mat-icon>Songs</h3>
+    <div class="card-grid">
+      <mat-card class="mini-card" *ngFor="let song of selectedArtist.songs" (click)="viewSong(song.id!)">
+        {{ song.title }}
+      </mat-card>
+    </div>
+  </div>
+</ng-container>

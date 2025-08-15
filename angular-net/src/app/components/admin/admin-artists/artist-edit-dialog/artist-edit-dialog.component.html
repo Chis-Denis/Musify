@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Edit Artist</h2>
+
+<mat-dialog-content class="dialog-form">
+  <mat-form-field class="form-field">
+    <mat-label>Active Start</mat-label>
+    <input matInput type="date" [(ngModel)]="editArtistData.activeStart" />
+  </mat-form-field>
+
+  <mat-form-field class="form-field">
+    <mat-label>Active End</mat-label>
+    <input matInput type="date" [(ngModel)]="editArtistData.activeEnd" />
+  </mat-form-field>
+
+  <ng-container *ngIf="editArtistData.type === 'person'">
+    <mat-form-field class="form-field">
+      <mat-label>Stage Name</mat-label>
+      <input matInput [(ngModel)]="editArtistData.stageName" />
+    </mat-form-field>
+  </ng-container>
+
+  <ng-container *ngIf="editArtistData.type === 'band'">
+    <mat-form-field class="form-field">
+      <mat-label>Band Name</mat-label>
+      <input matInput [(ngModel)]="editArtistData.bandName" />
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Location</mat-label>
+      <input matInput [(ngModel)]="editArtistData.location" />
+    </mat-form-field>
+  </ng-container>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-flat-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,265 @@
+.release-details-container {
+  background: var(--card-bg);
+  color: var(--primary-text);
+  width: 100vw;
+  min-height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+
+  .release-header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    justify-content: flex-start;
+    padding: 48px 32px 0 32px;
+
+    .release-artwork {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--main-accent), var(--secondary-accent));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .release-artwork-icon {
+        font-size: 3.5rem;
+        color: #fff;
+        opacity: 0.95;
+      }
+    }
+    .release-header-info {
+      flex: 1;
+      .release-title {
+        font-size: 2.2rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .release-meta {
+        color: var(--secondary-text);
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+      .release-description {
+        color: var(--secondary-text);
+        font-size: 1rem;
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  .release-table {
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+    background: var(--card-bg);
+    box-shadow: none;
+
+    .release-table-header, .release-table-row {
+      display: grid;
+      grid-template-columns: 40px 1.5fr 1fr 180px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--main-accent);
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .release-table-header {
+      font-weight: 600;
+      color: var(--main-accent);
+      background: transparent;
+    }
+    .release-table-row {
+      color: var(--primary-text);
+      background: var(--card-bg);
+      &:hover {
+        background: rgba(255,255,255,0.03);
+      }
+      .song-title {
+        font-weight: 600;
+      }
+      .song-artists {
+        color: var(--secondary-text);
+        font-size: 0.95rem;
+      }
+      .song-duration {
+        text-align: right;
+        color: var(--secondary-text);
+        border-radius: 0 8px 8px 0;
+        padding-right: 16px;
+      }
+    }
+  }
+
+  .release-footer {
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondary-text);
+    font-size: 1rem;
+    margin-top: 24px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+body, html {
+  background: var(--card-bg) !important;
+}
+
+.spotify-details-layout {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  background: var(--section-bg);
+
+  .albums-column {
+    width: 220px;
+    background: var(--card-bg);
+    padding: 32px 0 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .album-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+      .album-artwork {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--main-accent), var(--secondary-accent));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        .album-artwork-icon {
+          font-size: 2.5rem;
+          color: #fff;
+        }
+      }
+      .album-title {
+        color: var(--primary-text);
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
+  }
+
+  .songs-table-column {
+    flex: 1;
+    padding: 32px;
+    .songs-table {
+      width: 100%;
+      .songs-table-header, .songs-table-row {
+        display: grid;
+        grid-template-columns: 40px 2fr 1.5fr 1.5fr 80px;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--main-accent);
+      }
+      .songs-table-header {
+        font-weight: 600;
+        color: var(--main-accent);
+      }
+      .songs-table-row {
+        color: var(--primary-text);
+        background: var(--card-bg);
+        &:hover {
+          background: rgba(255,255,255,0.03);
+        }
+        .song-title {
+          font-weight: 600;
+        }
+        .song-artists, .song-album, .song-duration {
+          color: var(--secondary-text);
+          font-size: 0.98rem;
+        }
+      }
+    }
+  }
+}
+
+.details-action-btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border: 2px solid var(--secondary-accent);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--secondary-accent) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  padding: 0;
+}
+.details-action-btn:focus,
+.details-action-btn:hover {
+  background: var(--secondary-accent);
+  color: #181828 !important;
+  border-color: var(--secondary-accent) !important;
+}
+.details-action-btn .mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+.details-action-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.albums-toggle-btn {
+  border: 2px solid var(--main-accent) !important;
+  color: var(--main-accent) !important;
+  background: transparent !important;
+  border-radius: 12px !important;
+  font-weight: 600;
+  box-shadow: none !important;
+  min-width: 0 !important;
+  padding: 0 10px !important;
+  display: flex;
+  align-items: center;
+}
+.albums-toggle-btn mat-icon {
+  color: var(--main-accent) !important;
+}
+
+/* Drag-and-drop custom styles */
+.cdk-drop-list-dragging .release-table-row {
+  opacity: 0.7;
+  background: rgba(255, 76, 96, 0.08) !important;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.cdk-drag-preview {
+  box-shadow: 0 8px 24px rgba(255, 76, 96, 0.3), 0 4px 16px rgba(108, 92, 231, 0.2);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--primary-text);
+  opacity: 0.95;
+  padding: 8px 16px;
+  z-index: 10000;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.3;
+  background: var(--main-accent) !important;
+  border-radius: 8px;
+}
+
+[cdkDragHandle] {
+  cursor: grab !important;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

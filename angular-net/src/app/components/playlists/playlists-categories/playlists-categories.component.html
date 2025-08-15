@@ -1,0 +1,82 @@
+<section class="playlists-categories">
+  <h3>Categories</h3>
+  
+  <div class="playlists-categories__buttons">
+    <button
+      mat-flat-button
+      (click)="onFilterChange('')"
+      class="playlists-categories__btn"
+      [ngClass]="{'active-category': !playlistFilter}"
+    >
+      All
+    </button>
+    <button
+      mat-flat-button
+      (click)="onFilterChange('public')"
+      class="playlists-categories__btn"
+      [ngClass]="{'active-category': playlistFilter === 'public'}"
+    >
+      ❤️ Public
+    </button>
+    <button
+      mat-flat-button
+      (click)="onFilterChange('private')"
+      class="playlists-categories__btn"
+      [ngClass]="{'active-category': playlistFilter === 'private'}"
+    >
+      📝 Private
+    </button>
+    <button mat-flat-button color="accent" (click)="onCreatePlaylist()" class="playlists-categories__btn">
+      <mat-icon>add</mat-icon> Create
+    </button>
+    <div class="search-wrapper playlists-search-bar">
+      <mat-form-field appearance="outline" class="search-box">
+        <mat-label>Search Playlists</mat-label>
+        <input
+          matInput
+          [ngModel]="searchName"
+          (ngModelChange)="onSearchNameChange($event)"
+          (keydown.enter)="onSearchByName()"
+          placeholder="What playlist do you want to find?"
+          name="searchName"
+        />
+      </mat-form-field>
+      <button mat-icon-button color="accent" aria-label="Search" (click)="onSearchByName()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="filteredPlaylists.length > 0; else noPlaylists" class="carousel">
+    <mat-card *ngFor="let playlist of filteredPlaylists" class="playlists-categories__playlist" (click)="onViewPlaylist(playlist)">
+      <div class="placeholder-artwork">
+        <div class="playlist-icon">🎵</div>
+      </div>
+      <mat-card-content>
+        <mat-card-title>{{ playlist.name }}</mat-card-title>
+        <mat-card-subtitle>{{ userNames[playlist.userId] || 'Loading...' }}</mat-card-subtitle>
+        <div class="playlist-info">
+          <span class="playlist-type">{{ playlist.type }}</span>
+          <span class="playlist-date">{{ playlist.createdAt | date:'short' }}</span>
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="playlists-categories__actions">
+        <button *ngIf="playlist.userId === followUserId" mat-icon-button color="accent" (click)="onEdit(playlist); $event.stopPropagation()" matTooltip="Edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button *ngIf="playlist.userId === followUserId" mat-icon-button color="warn" (click)="onDelete(playlist.id); $event.stopPropagation()" matTooltip="Delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button [color]="getFollowColor(playlist)" (click)="onToggleFollow(playlist); $event.stopPropagation()" matTooltip="Follow/Unfollow">
+          <mat-icon>{{ getFollowIcon(playlist) }}</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <ng-template #noPlaylists>
+    <p class="playlists-categories__empty">
+      {{ infoMsg }}
+    </p>
+  </ng-template>
+</section>

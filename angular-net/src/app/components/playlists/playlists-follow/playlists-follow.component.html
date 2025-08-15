@@ -1,0 +1,24 @@
+<mat-card class="playlists-follow">
+  <h3 class="playlists-follow__title">Follow/Unfollow</h3>
+  <div class="playlists-follow__container">
+    <div class="playlists-follow__user">
+      <h5 class="playlists-follow__subtitle">Your User ID</h5>
+      <mat-form-field class="playlists-follow__field">
+        <mat-label>User ID</mat-label>
+        <input matInput type="number" [ngModel]="followUserId" (ngModelChange)="onUserIdChange($event)" name="followUserId">
+      </mat-form-field>
+    </div>
+    <div class="playlists-follow__action">
+      <h5 class="playlists-follow__subtitle">Follow a Playlist</h5>
+      <form (ngSubmit)="onFollow()">
+        <mat-form-field class="playlists-follow__field">
+          <mat-label>Playlist ID to Follow</mat-label>
+          <input matInput type="number" [ngModel]="followPlaylistId" (ngModelChange)="onPlaylistIdChange($event)" name="followPlaylistId">
+        </mat-form-field>
+        <button mat-raised-button color="accent" type="submit" [disabled]="!followPlaylistId || !followUserId" class="playlists-follow__btn">
+          Follow
+        </button>
+      </form>
+    </div>
+  </div>
+</mat-card> 

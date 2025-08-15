@@ -1,0 +1,18 @@
+<div class="add-song-dialog-container">
+  <h2 class="add-song-title">Create Playlist</h2>
+  <mat-form-field appearance="outline" class="add-song-search-field">
+    <mat-label>Name*</mat-label>
+    <input matInput [(ngModel)]="name" name="name" required autofocus />
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="add-song-search-field">
+    <mat-label>Type*</mat-label>
+    <mat-select [(ngModel)]="type" name="type" required>
+      <mat-option value="public">Public</mat-option>
+      <mat-option value="private">Private</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="add-song-actions">
+    <button mat-stroked-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="accent" [disabled]="!name || !type" (click)="onSave()">Save</button>
+  </div>
+</div> 

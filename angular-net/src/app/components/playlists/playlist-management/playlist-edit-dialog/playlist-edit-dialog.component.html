@@ -1,0 +1,11 @@
+<div class="add-song-dialog-container">
+  <h2 class="add-song-title">Edit Playlist Name</h2>
+  <mat-form-field appearance="outline" class="add-song-search-field">
+    <mat-label>Name*</mat-label>
+    <input matInput [(ngModel)]="name" name="name" required autofocus />
+  </mat-form-field>
+  <div class="add-song-actions">
+    <button mat-stroked-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="accent" [disabled]="!name" (click)="onSave()">Save</button>
+  </div>
+</div> 

@@ -1,0 +1,38 @@
+<div class="update-profile-container">
+  <button mat-raised-button color="primary" (click)="showUpdateDialog()" [disabled]="showUpdateDialogFlag">
+    <mat-icon>edit</mat-icon>
+    update
+  </button>
+
+  <div *ngIf="showUpdateDialogFlag" class="confirmation-dialog">
+    <div class="dialog-content">
+      <form (ngSubmit)="updateProfile()" class="dialog-body">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput [(ngModel)]="user.firstName" name="firstName" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput [(ngModel)]="user.lastName" name="lastName" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="user.email" name="email" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Country</mat-label>
+          <input matInput [(ngModel)]="user.country" name="country" />
+        </mat-form-field>
+
+        <div class="dialog-actions">
+          <button mat-stroked-button type="button" (click)="cancelUpdate()" class="cancel-btn">
+            Cancel
+          </button>
+          <button mat-raised-button color="primary" type="submit" class="confirm-btn">
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="admin-users-container">
+  <div class="form-section">
+    <h3>Add New User</h3>
+    
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" [(ngModel)]="newUser.email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" type="password" [(ngModel)]="newUser.passwordHash">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" [(ngModel)]="newUser.firstName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Last Name" [(ngModel)]="newUser.lastName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <input matInput placeholder="Country" [(ngModel)]="newUser.country">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select [(ngModel)]="newUser.role" placeholder="Role">
+        <mat-option [value]="UserRole.User">User</mat-option>
+        <mat-option [value]="UserRole.Admin">Admin</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button (click)="createUser()">Add User</button>
+    </div>
+
+  </div>
+
+
+  <mat-card class="table-section">
+    <!-- search field -->
+    <mat-form-field appearance="fill" class="email-filter">
+      <mat-label>Search by email</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Type email..." />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <!-- table -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef>Role</th>
+        <td mat-cell *matCellDef="let user">{{ user.role }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let user">
+          <button mat-icon-button (click)="editUser(user)" title="Edit User">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteUser(user.id)" title="Delete User">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="changeRole(user)" title="Change Role">
+            <mat-icon>swap_horiz</mat-icon>
+          </button>
+          <button mat-icon-button (click)="user.isActive ? deactivate(user) : activate(user)" 
+                  [title]="user.isActive ? 'Deactivate User' : 'Activate User'">
+            <mat-icon>{{ user.isActive ? 'block' : 'check_circle' }}</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="paginator-container">
+      <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card>
+</div>

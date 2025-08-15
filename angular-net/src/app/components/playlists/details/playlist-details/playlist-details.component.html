@@ -1,0 +1,93 @@
+<div class="release-details-container">
+  <div class="release-header">
+    <div class="release-artwork">
+      <span class="release-artwork-icon">🎵</span>
+    </div>
+    <div class="release-header-info">
+      <h1 class="release-title">{{ playlistName }}</h1>
+      <div class="release-meta">
+        <span class="release-artist"><mat-icon>person</mat-icon> {{ creatorName }}</span>
+        <span class="release-genre">• {{ genre }}</span>
+        <span class="release-count">• {{ songs.length }} songs</span>
+      </div>
+      <div class="release-description">{{ description }}</div>
+    </div>
+    <div class="release-header-actions" *ngIf="isOwner()" style="display: flex; flex-direction: column; align-items: flex-end; gap: 0;">
+      <button mat-icon-button class="details-action-btn" [matMenuTriggerFor]="addMenu" aria-label="Add">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-menu #addMenu="matMenu">
+        <button mat-menu-item (click)="openAddSongDialog()"><mat-icon>library_music</mat-icon> Add Song</button>
+        <button mat-menu-item (click)="openAddAlbumDialog()"><mat-icon>album</mat-icon> Add Album</button>
+      </mat-menu>
+      <button mat-stroked-button color="accent" (click)="toggleAlbumsView()" class="albums-toggle-btn" style="margin-top: 4px;">
+        <mat-icon style="margin-right: 6px;">album</mat-icon>
+        {{ showAlbumsView ? 'Songs in playlist' : 'Albums in playlist' }}
+      </button>
+    </div>
+  </div>
+  <div class="release-table" *ngIf="!showAlbumsView">
+    <div class="release-table-header">
+      <span>#</span>
+      <span>Songs</span>
+      <span></span>
+      <span></span>
+    </div>
+    <div *ngIf="isOwner(); else staticSongList">
+      <div cdkDropList (cdkDropListDropped)="onDropSong($event)">
+        <div *ngFor="let song of songs; let i = index" class="release-table-row" cdkDrag (click)="onSongClick(song)" style="cursor: pointer;">
+          <span cdkDragHandle style="cursor: grab;">{{ i + 1 }}</span>
+          <span>
+            <span class="song-title">{{ song.title }}</span>
+            <div class="song-artists">{{ song.artistName }}</div>
+          </span>
+          <span class="song-duration">
+            {{ song.duration }}
+            <span *ngIf="song.albumTitle">&nbsp;from {{ song.albumTitle }}</span>
+          </span>
+          <span *ngIf="isOwner()">
+            <button mat-icon-button class="details-action-btn" color="warn" aria-label="Remove Song" (click)="removeSong(song); $event.stopPropagation()">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <ng-template #staticSongList>
+      <div>
+        <div *ngFor="let song of songs; let i = index" class="release-table-row" (click)="onSongClick(song)" style="cursor: pointer;">
+          <span>{{ i + 1 }}</span>
+          <span>
+            <span class="song-title">{{ song.title }}</span>
+            <div class="song-artists">{{ song.artistName }}</div>
+          </span>
+          <span class="song-duration">
+            {{ song.duration }}
+            <span *ngIf="song.albumTitle">&nbsp;from {{ song.albumTitle }}</span>
+          </span>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="release-table" *ngIf="showAlbumsView">
+    <div class="release-table-header">
+      <span>#</span>
+      <span>Album</span>
+      <span>Artist</span>
+      <span></span>
+    </div>
+    <div *ngFor="let album of albumsDetailed; let i = index" class="release-table-row" (click)="onAlbumClick(album)" style="cursor: pointer;">
+      <span>{{ i + 1 }}</span>
+      <span class="song-title">{{ album.albumTitle }}</span>
+      <span class="song-artists">{{ album.artistName }}</span>
+      <span *ngIf="isOwner()">
+        <button mat-icon-button class="details-action-btn" color="warn" aria-label="Remove Album" (click)="removeAlbumFromPlaylist(album); $event.stopPropagation()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="release-footer">
+    <span>{{ releaseDate | date:'mediumDate' }}</span>
+  </div>
+</div>
