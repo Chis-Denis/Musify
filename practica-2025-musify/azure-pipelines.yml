@@ -1,0 +1,85 @@
+# build-api.yml
+# ───────────────────────────────────────────────────────────────
+# Build-only pipeline
+# Project: Musify
+# Trigger: automatic on develop branch
+# Deploy will be handled via Classic Releases 
+# ───────────────────────────────────────────────────────────────
+
+trigger:
+  branches:
+    include:
+      - main
+pool:
+  name: 'ARBSDEVOPSBUILD01_Shared'
+
+variables:
+
+  - name: buildConfiguration
+    value: 'Release'
+  - name: artifactDir
+    value: '$(Build.ArtifactStagingDirectory)'
+  - name: sqlServer
+    value: sqlserverpractica2025.database.windows.net
+  - name: sqlConnection
+    value: 'Server=tcp:sqlserverpractica2025.database.windows.net,1433;Database=dbpractica2025;Persist Security Info=False;User Id=sql2025cloud;Password="2=7r^6!)PZT*H9C";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+# ───────────────────────────────────────────────────────────────
+# Restore sln
+# ───────────────────────────────────────────────────────────────
+- task: NuGetToolInstaller@1
+
+# ───────────────────────────────────────────────────────────────
+#  Build Solution 
+# ───────────────────────────────────────────────────────────────
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build .NET project'
+  inputs:
+    command: 'build'
+    projects: '**/*.sln'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish Musify'
+  inputs:
+    command: 'publish'
+    projects: '**/*Musify.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(artifactDir)/deploy'
+    zipAfterPublish: true
+
+# ───────────────────────────────────────────────────────────────
+#   Publish the deploy folder as artefact
+# ───────────────────────────────────────────────────────────────
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish folder artefact'
+  inputs:
+    PathtoPublish: '$(artifactDir)/deploy/Musify.zip'
+    ArtifactName:  'Musify'
+    publishLocation: Container
+
+# ───────────────────────────────────────────────────────────────
+# Run tests
+# ───────────────────────────────────────────────────────────────
+
+- script: |
+    dotnet test \
+      --configuration Release \
+      --no-build \
+      --logger "trx;LogFileName=$(Build.ArtifactStagingDirectory)/test_results.trx" --results-directory $(Build.ArtifactStagingDirectory)
+  displayName: 'Run xUnit tests'
+ 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '$(Build.ArtifactStagingDirectory)/test_results.trx'
+    testRunTitle: 'xUnit Tests'
+    failTaskOnFailedTests: false

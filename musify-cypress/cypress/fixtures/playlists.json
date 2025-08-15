@@ -1,0 +1,24 @@
+{
+    "examplePlaylist1": {
+        "id": 1,
+        "name": "My Awesome Playlist",
+        "type": "public",
+        "userId": 1,
+            "createdAt": "2024-01-15T10:30:00Z"
+        },
+    "examplePlaylist2": {
+            "id": 2,
+            "name": "Private Collection",
+            "type": "private",
+            "userId": 1,
+            "createdAt": "2024-01-10T15:45:00Z"
+        },
+    "examplePlaylist3": {
+            "id": 3,
+            "name": "Test Playlist",
+            "type": "public",
+            "userId": 2,
+            "createdAt": "2024-01-05T09:15:00Z"
+        }
+    
+}

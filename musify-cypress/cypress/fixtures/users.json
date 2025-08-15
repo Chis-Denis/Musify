@@ -1,0 +1,189 @@
+{
+  "validUser": {
+    "email": "john@example.com",
+    "password": "hash1!",
+    "name": "Test User"
+  },
+  "validUser2": {	
+    "email": "liam@musify.com",
+    "password": "hash1",
+    "name": "Carlos Musify"
+  },
+  "invalidUser": {
+    "email": "invalid@example.com",
+    "password": "wrongpassword",
+    "name": "Invalid Example"
+  },
+  "lockedUser": {
+    "email": "locked@example.com",
+    "password": "Locked123!",
+    "name": "Locked Example"
+  },
+  "adminUser": {
+    "email": "jack.young@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Jack Young"
+  },
+  "adminUser1": {
+    "email": "elizabeth.king@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Elizabeth King"
+  },
+  "adminUser2": {
+    "email": "owen.wright@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Owen Wright"
+  },
+  "adminUser3": {
+    "email": "sofia.lopez@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Sofia Lopez"
+  },
+  "adminUser4": {
+    "email": "samuel.hill@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Samuel Hill"
+  },
+  "adminUser5": {
+    "email": "avery.scott@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Avery Scott"
+  },
+  "adminUser6": {
+    "email": "dylan.green@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Dylan Green"
+  },
+  "adminUser7": {
+    "email": "ella.adams@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Ella Adams"
+  },
+  "adminUser8": {
+    "email": "nathan.baker@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Nathan Baker"
+  },
+  "adminUser9": {
+    "email": "madison.gonzalez@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Madison Gonzalez"
+  },
+  "adminUser10": {
+    "email": "isaac.nelson@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Isaac Nelson"
+  },
+  "adminUser11": {
+    "email": "scarlett.carter@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Scarlett Carter"
+  },
+  "adminUser12": {
+    "email": "ryan.mitchell@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Ryan Mitchell"
+  },
+  "adminUser13": {
+    "email": "anthony.edwards@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Anthony Edwards"
+  },
+  "adminUser14": {
+    "email": "victoria.perez@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Victoria Perez"
+  },
+  "adminUser15": {
+    "email": "andrew.roberts@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Andrew Roberts"
+  },
+  "adminUser16": {
+    "email": "luna.turner@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Luna Turner"
+  },
+  "adminUser17": {
+    "email": "joshua.phillips@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Joshua Phillips"
+  },
+  "adminUser18": {
+    "email": "grace.campbell@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Grace Campbell"
+  },
+  "adminUser19": {
+    "email": "christopher.parker@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Christopher Parker"
+  },
+  "adminUser20": {
+    "email": "chloe.evans@musify.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Chloe Evans"
+  },
+  "adminUser21": {
+    "email": "craciun@gmail.com",
+    "password": "hash1",
+    "role": "admin",
+    "name": "Craciun Pop"
+  },
+  "userWithWeakPassword": {
+    "email": "weak@example.com",
+    "password": "Weak123!",
+    "name": "Weak Example"
+  },
+  "userWithInvalidEmail": {
+    "email": "invalid-email",
+    "password": "Invalid123!",
+    "name": "Invalid Email"
+  },
+  
+  "userForApiTest": {
+    "email": "john1@test.com",
+    "password": "Hash1New!"
+  },
+
+  "searchUser": {
+    "email": "john@example.com"
+  },
+  "newUser": {
+    "email": "testuser@example.com",
+    "password": "Test123!",
+    "firstName": "Test",
+    "lastName": "User",
+    "country": "USA",
+    "role": "User"
+  },
+  "updateUser": {
+    "email": "testuser@example.com",
+    "firstName": "Updated",
+    "lastName": "Name",
+    "country": "Canada",
+    "role": "Admin"
+  }
+
+}

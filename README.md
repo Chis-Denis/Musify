@@ -351,4 +351,4 @@ The project includes Azure DevOps pipelines for automated deployment:
 
 ---
 
-**Built with ❤️ using .NET 8, Angular 19, and Cypress**
+**Built using .NET 8, Angular 19, and Cypress**

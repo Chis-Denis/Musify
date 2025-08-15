@@ -1,0 +1,32 @@
+{
+  "newAlbum": {
+    "title": "Test Album",
+    "artist": "Test Artist",
+    "description": "A test album for testing purposes",
+    "genre": "Rock",
+    "releaseDate": "2024-01-15",
+    "label": "Test Records"
+  },
+  "updatedAlbum": {
+    "title": "Updated Test Album",
+    "artist": "Updated Test Artist",
+    "description": "An updated test album description",
+    "genre": "Pop",
+    "releaseDate": "2024-02-20",
+    "label": "Updated Records"
+  },
+  "testSongs": [
+    {
+      "title": "Test Song 1",
+      "artist": "Test Artist"
+    },
+    {
+      "title": "Test Song 2", 
+      "artist": "Test Artist"
+    }
+  ],
+  "searchTerms": {
+    "title": "Test",
+    "genre": "Rock"
+  }
+} 

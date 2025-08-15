@@ -1,0 +1,46 @@
+# ───────────────────────────────────────────────────────────────
+# Build-only pipeline for Azure SQL Database (DACPAC)
+# Project: SQLMusify
+# Trigger: automatic on develop branch
+# Deploy will be handled via Classic Releases
+# ───────────────────────────────────────────────────────────────
+
+trigger:
+  branches:
+    include:
+      - main
+      
+pool:
+  name: 'ARBSDEVOPSBUILD01_Shared'
+
+variables:
+ - name: sqlConnection
+   value: 'Server=tcp:sqlserverpractica2025.database.windows.net,1433;Database=dbpractica2025;Persist Security Info=False;User Id=sql2025cloud;Password=2=7r^6!)PZT*H9C;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+
+stages:
+  - stage: DatabaseUpdate
+    jobs:
+      - job: EFCoreMigrate
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '8.x'
+  
+          # Install EF Core
+          - script: |
+              dotnet tool install --global dotnet-ef
+            displayName: 'Install EF Core CLI tools'
+            env:
+              PATH: $(PATH):$(HOME)/.dotnet/tools
+
+          # Apply EF Core migration directly (NO sqlcmd)
+          - script: |
+              dotnet ef database update \
+                --project **/*Infrastructure.csproj \
+                --startup-project **/*Musify.csproj \
+                --connection "$(sqlConnection)"
+            displayName: 'Apply EF Core migration with dotnet ef'
+            env:
+              PATH: $(PATH):$(HOME)/.dotnet/tools
+          

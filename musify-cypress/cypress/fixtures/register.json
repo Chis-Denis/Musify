@@ -1,0 +1,217 @@
+{
+  "validUsers": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john@test.com",
+      "password": "Password123!",
+      "confirmPassword": "Password123!",
+      "country": "USA"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane@test.com",
+      "password": "Secure456@",
+      "confirmPassword": "Secure456@",
+      "country": "Canada"
+    },
+    {
+      "firstName": "Jose",
+      "lastName": "Garcia",
+      "email": "jose@test.com",
+      "password": "Strong789#",
+      "confirmPassword": "Strong789#",
+      "country": "Spain"
+    }
+  ],
+  "invalidEmails": [
+    "invalid",
+    "test@",
+    "@test.com"
+  ],
+  "weakPasswords": [
+    "123",
+    "abc",
+    "pass",
+    "test",
+    "password",
+    "Password",
+    "Password123",
+    "password123!"
+  ],
+  "specialChars": {
+    "firstName": "John-Doe",
+    "lastName": "O'Connor",
+    "email": "john+test@test.com",
+    "password": "Secure123!",
+    "confirmPassword": "Secure123!",
+    "country": "Cote d'Ivoire"
+  },
+  "longInputs": {
+    "firstName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "lastName": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "email": "long@test.com",
+    "password": "LongPassword123!",
+    "confirmPassword": "LongPassword123!",
+    "country": "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "fillFields": {
+    "firstName": "Name",
+    "lastName": "Surname",
+    "email": "email@example.com",
+    "password": "Password123!",
+    "confirmPassword": "Password123!",
+    "country": "USA"
+  },
+  "whitespace": {
+    "firstName": " ",
+    "lastName": "  ",
+    "email": "   ",
+    "password": "    ",
+    "confirmPassword": "     ",
+    "country": "     "
+  },
+  "duplicateEmail": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "duplicate@test.com",
+    "password": "Password123!",
+    "confirmPassword": "Password123!",
+    "country": "USA"
+  },
+  "duplicateAttempt": {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "duplicate@test.com",
+    "password": "Secure456@",
+    "confirmPassword": "Secure456@",
+    "country": "Canada"
+  },
+  "formLabels": [
+    "First Name",
+    "Last Name",
+    "Email",
+    "Password",
+    "Confirm password",
+    "Country"
+  ],
+  "pageElements": {
+    "title": "Register",
+    "buttonText": "Register",
+    "loginLinkText": "Login",
+    "loginLinkHref": "/login"
+  },
+  "inputTypes": {
+    "password": "password",
+    "confirmPassword": "password",
+    "email": "text",
+    "firstName": "text",
+    "lastName": "text",
+    "country": "text"
+  },
+  "requiredFields": [
+    "firstName",
+    "lastName",
+    "email",
+    "password",
+    "confirmPassword",
+    "country"
+  ],
+  "errorMessages": {
+    "duplicateEmail": "Email exists",
+    "invalidEmail": "Invalid email",
+    "weakPassword": "Weak password",
+    "requiredField": "Required field",
+    "networkError": "Network error",
+    "serverError": "Server error"
+  },
+  "testScenarios": {
+    "successfulRegistration": {
+      "description": "Valid registration",
+      "data": {
+        "firstName": "Test",
+        "lastName": "User",
+        "email": "test@test.com",
+        "password": "Password123!",
+        "confirmPassword": "Password123!",
+        "country": "USA"
+      },
+      "expectedResult": "Success"
+    },
+    "formValidation": {
+      "description": "Form validation",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Fill firstName",
+          "data": { "firstName": "John" },
+          "expectedButtonState": "disabled"
+        },
+        {
+          "step": 2,
+          "action": "Add lastName",
+          "data": { "lastName": "Doe" },
+          "expectedButtonState": "disabled"
+        },
+        {
+          "step": 3,
+          "action": "Add email",
+          "data": { "email": "john@test.com" },
+          "expectedButtonState": "disabled"
+        },
+        {
+          "step": 4,
+          "action": "Add password",
+          "data": { "password": "Password123!" },
+          "expectedButtonState": "disabled"
+        },
+        {
+          "step": 5,
+          "action": "Add confirm password",
+          "data": { "confirmPassword": "Password123!" },
+          "expectedButtonState": "disabled"
+        },
+        {
+          "step": 6,
+          "action": "Add country",
+          "data": { "country": "USA" },
+          "expectedButtonState": "enabled"
+        }
+      ]
+    }
+  },
+  "navigationTests": {
+    "loginLink": {
+      "expectedUrl": "/login",
+      "linkText": "Login",
+      "linkSelector": "a[routerLink='/login']"
+    }
+  },
+  "accessibilityTests": {
+    "labels": [
+      "First Name",
+      "Last Name", 
+      "Email",
+      "Password",
+      "Confirm password",
+      "Country"
+    ],
+    "requiredAttributes": [
+      "firstName",
+      "lastName",
+      "email",
+      "password",
+      "confirmPassword",
+      "country"
+    ],
+    "inputTypes": {
+      "password": "password",
+      "confirmPassword": "password",
+      "email": "text",
+      "firstName": "text",
+      "lastName": "text",
+      "country": "text"
+    }
+  }
+} 

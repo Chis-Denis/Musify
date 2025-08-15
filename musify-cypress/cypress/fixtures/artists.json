@@ -1,0 +1,25 @@
+{
+  "searchArtist": {
+    "name": "Test Artist"
+  },
+  "newPersonArtist": {
+    "stageName": "Cypress Person",
+    "firstName": "John",
+    "lastName": "Cypress",
+    "birthday": "1990-01-01",
+    "activeStart": "2010-01-01",
+    "activeEnd": "2023-12-31"
+  },
+  "newBandArtist": {
+    "bandName": "Cypress Band",
+    "location": "Test City",
+    "activeStart": "2015-01-01",
+    "activeEnd": "2023-12-31"
+  },
+  "updatePersonArtist": {
+    "stageName": "Updated Cypress Person",
+    "firstName": "Jane",
+    "lastName": "Updated",
+    "location": "Updated City"
+  }
+}
